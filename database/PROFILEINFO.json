@@ -1,0 +1,10 @@
+[
+    {
+        "id": 1,
+        "first_name": "Albin",
+        "last_name": "Johansson",
+        "profile_img": "img",
+        "university": "Karlstad Universitet",
+        "education": "Spelutveckling"
+    }
+]
