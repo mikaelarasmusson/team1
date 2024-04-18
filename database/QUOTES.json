@@ -1,83 +1,90 @@
 {
-    "id": 1,
-    "quote": "Today is a lovely day to be alive!"
-},
-{
-    "id": 2,
-    "quote": "Carpe Diem."
-},
-{
-    "id": 3,
-    "quote": "Don’t wish for it. Work for it."
-},
-{
-    "id": 4,
-    "quote": "Smile at others."
-},
-{
-    "id": 5,
-    "quote": "You do not just wake up and become a butterfly. Growth is a process."
-},
-{
-    "id": 6,
-    "quote": "All we have is now."
-},
-{
-    "id": 7,
-    "quote": "Better days are coming. They are called Saturday and Sunday."
-},
-{
-    "id": 8,
-    "quote": "Be silly. Be honest. Be kind."
-},
-{
-    "id": 9,
-    "quote": "Believe you can and you're halfway there."
-},
-{
-    "id": 10,
-    "quote": "The only way to do great work is to love what you do."
+    "quotes": [
+        {
+            "id": 1,
+            "quote": "Today is a lovely day to be alive!"
+        },
+        {
+            "id": 2,
+            "quote": "Carpe Diem."
+        },
+        {
+            "id": 3,
+            "quote":"Don’t wish for it. Work for it."
+        },
+        {
+            "id": 4,
+            "quote":"Smile at others."
+        },
+        {
+            "id": 5,
+            "quote":"You do not just wake up and become a butterfly. Growth is a process."
+        },
+        {
+            "id": 6,
+            "quote":"All we have is now."
+        },
+        {
+            "id": 7,
+            "quote":"Better days are coming. They are called Saturday and Sunday."
+        },
+        {
+            "id": 8,
+            "quote":"Be silly. Be honest. Be kind."
+        },
+        {
+            "id": 9,
+            "quote":"Believe you can and you're halfway there."
+        },
+        {
+            "id": 10,
+            "quote":"The only way to do great work is to love what you do."
+        },
+    
+
+        {
+            "id": 31,
+            "quote": "Every card you make is a step towards mastery."
+        },
+        {
+            "id": 32,
+            "quote": "Flashcards turn learning into a game you can win."
+        },
+        {
+            "id": 33,
+            "quote": "Today's flashcards are tomorrow's success stories."
+        },
+        {
+            "id": 34,
+            "quote": "Unlock your potential with every flip of a card."
+        },
+        {
+            "id": 35,
+            "quote": "Master your subjects, one flashcard at a time."
+        },
+        {
+            "id": 36,
+            "quote": "Turn repetition into expertise with each flashcard session."
+        },
+        {
+            "id": 37,
+            "quote": "Knowledge is power, and flashcards are your tool."
+        },
+        {
+            "id": 38,
+            "quote": "Practice makes progress, and flashcards make it fun."
+        },
+        {
+            "id": 39,
+            "quote": "Challenge yourself to conquer each flashcard."
+        },
+        {
+            "id": 40,
+            "quote": "Transform study time into playtime with flashcards."
+        }
+ 
+    ]
 }
-},
-{
-"id": 31,
-"quote": "Every card you make is a step towards mastery."
-},
-{
-"id": 32,
-"quote": "Flashcards turn learning into a game you can win."
-},
-{
-"id": 33,
-"quote": "Today's flashcards are tomorrow's success stories."
-},
-{
-"id": 34,
-"quote": "Unlock your potential with every flip of a card."
-},
-{
-"id": 35,
-"quote": "Master your subjects, one flashcard at a time."
-},
-{
-"id": 36,
-"quote": "Turn repetition into expertise with each flashcard session."
-},
-{
-"id": 37,
-"quote": "Knowledge is power, and flashcards are your tool."
-},
-{
-"id": 38,
-"quote": "Practice makes progress, and flashcards make it fun."
-},
-{
-"id": 39,
-"quote": "Challenge yourself to conquer each flashcard."
-},
-{
-"id": 40,
-"quote": "Transform study time into playtime with flashcards."
-}
-]
-}
+
+
+
