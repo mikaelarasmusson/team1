@@ -1,10 +1,24 @@
-[
-    {
-        "id": 1,
-        "username": "mikaela",
-        "password": "lol",
-        "profile-img": "img",
-        "university": "Malmö Universitet",
-        "education": "Webbdesign"
-    }
-]
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "sebbe",
+            "password": "arya",
+            "first_name": "Sebastian",
+            "last_name": "Bengtegård",
+            "university": "Malmö Universitet",
+            "programme": "WDU",
+            "picture": "sökväg.jpg"
+        },
+        {
+            "id": 2,
+            "username": "mikkan",
+            "password": "lol",
+            "first_name": "Mikaela",
+            "last_name": "Rasmusson",
+            "university": "Malmö Universitet",
+            "programme": "WDU",
+            "picture": "sökväg.jpg"
+        }
+    ]
+}
