@@ -43,6 +43,46 @@
         {
             "id": 21,
             "quote": " The only person you should try to be better than is the person you were yesterday."
+        },
+        {
+            "id": 1,
+            "quote": "Today is a lovely day to be alive!"
+        },
+        {
+            "id": 2,
+            "quote": "Carpe Diem."
+        },
+        {
+            "id": 3,
+            "quote": "Don’t wish for it. Work for it."
+        },
+        {
+            "id": 4,
+            "quote": "Smile at others."
+        },
+        {
+            "id": 5,
+            "quote": "You do not just wake up and become a butterfly. Growth is a process."
+        },
+        {
+            "id": 6,
+            "quote": "All we have is now."
+        },
+        {
+            "id": 7,
+            "quote": "Better days are coming. They are called Saturday and Sunday."
+        },
+        {
+            "id": 8,
+            "quote": "Be silly. Be honest. Be kind."
+        },
+        {
+            "id": 9,
+            "quote": "Believe you can and you're halfway there."
+        },
+        {
+            "id": 10,
+            "quote": "The only way to do great work is to love what you do."
         }
     ]
 }
