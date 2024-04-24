@@ -27,24 +27,26 @@ function getRequestData()
     return json_decode($json, true);
 }
 
-function getFlashcardsDatabase()
+function getDatabase()
 {
     // Incase the database does not exist, or is empty, we'll default to this
     $emptyDatabaseTemplate = json_encode([
-        "flashcards" => [],
+        "owners" => [],
+        "dogs" => [],
+        "cats" => []
     ], JSON_PRETTY_PRINT);
 
-    if (file_exists("FLASHCARDS.json") == false) {
-        file_put_contents("FLASHCARDS.json", $emptyDatabaseTemplate);
+    if (file_exists("database.json") == false) {
+        file_put_contents("database.json", $emptyDatabaseTemplate);
     }
 
-    $databaseContents = file_get_contents("FLASHCARDS.json");
+    $databaseContents = file_get_contents("database.json");
 
     if ($databaseContents == "") {
-        file_put_contents("FLASHCARDS.json", $emptyDatabaseTemplate);
+        file_put_contents("database.json", $emptyDatabaseTemplate);
     }
     
-    $databaseContents = file_get_contents("FLASHCARDS.json");
+    $databaseContents = file_get_contents("database.json");
     $databaseData = json_decode($databaseContents, true);
     
     if (is_array($databaseData) == false) {
@@ -54,88 +56,6 @@ function getFlashcardsDatabase()
     return $databaseData;
 }
 
-function getQuotesDatabase()
-{
-    // Incase the database does not exist, or is empty, we'll default to this
-    $emptyDatabaseTemplate = json_encode([
-        "quotes" => [],
-    ], JSON_PRETTY_PRINT);
-
-    if (file_exists("QUOTES.json") == false) {
-        file_put_contents("QUOTES.json", $emptyDatabaseTemplate);
-    }
-
-    $databaseContents = file_get_contents("QUOTES.json");
-
-    if ($databaseContents == "") {
-        file_put_contents("QUOTES.json", $emptyDatabaseTemplate);
-    }
-    
-    $databaseContents = file_get_contents("QUOTES.json");
-    $databaseData = json_decode($databaseContents, true);
-    
-    if (is_array($databaseData) == false) {
-        abort(500, "Internal Server Error (invalid database)");
-    }
-
-    return $databaseData;
-}
-
-function getToDosDatabase()
-{
-    // Incase the database does not exist, or is empty, we'll default to this
-    $emptyDatabaseTemplate = json_encode([
-        "todos" => [],
-    ], JSON_PRETTY_PRINT);
-
-    if (file_exists("TODOS.json") == false) {
-        file_put_contents("TODOS.json", $emptyDatabaseTemplate);
-    }
-
-    $databaseContents = file_get_contents("TODOS.json");
-
-    if ($databaseContents == "") {
-        file_put_contents("TODOS.json", $emptyDatabaseTemplate);
-    }
-    
-    $databaseContents = file_get_contents("TODOS.json");
-    $databaseData = json_decode($databaseContents, true);
-    
-    if (is_array($databaseData) == false) {
-        abort(500, "Internal Server Error (invalid database)");
-    }
-
-    return $databaseData;
-}
-
-function getUsersDatabase()
-{
-    // Incase the database does not exist, or is empty, we'll default to this
-    $emptyDatabaseTemplate = json_encode([
-        "users" => [],
-    ], JSON_PRETTY_PRINT);
-
-    if (file_exists("USERS.json") == false) {
-        file_put_contents("USERS.json", $emptyDatabaseTemplate);
-    }
-
-    $databaseContents = file_get_contents("USERS.json");
-
-    if ($databaseContents == "") {
-        file_put_contents("USERS.json", $emptyDatabaseTemplate);
-    }
-    
-    $databaseContents = file_get_contents("USERS.json");
-    $databaseData = json_decode($databaseContents, true);
-    
-    if (is_array($databaseData) == false) {
-        abort(500, "Internal Server Error (invalid database)");
-    }
-
-    return $databaseData;
-}
-
-/*
 function getDatabaseByType($type)
 {
     $database = getDatabase();
@@ -146,7 +66,6 @@ function getDatabaseByType($type)
 
     return $database[$type];
 }
-*/
 
 function requestContainsAllKeys($data, $keys)
 {
