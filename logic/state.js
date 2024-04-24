@@ -32,16 +32,6 @@ async function post (data) {
     const entity = data.entity;
     const rqst = data.rqst;
 
-    const response = await fetcher(rqst);
-
-    if (response !== undefined) {
-        const resource = await response.json();
-        _STATE[entity].push(resource);
-
-        switch (entity) {
-            
-        }
-    }
 }
 
 async function patch (data) {
@@ -53,5 +43,5 @@ async function Delete (data) {
 }
 
 async function renderApp() {
-    
+
 }
