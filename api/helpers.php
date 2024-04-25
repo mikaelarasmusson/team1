@@ -27,7 +27,7 @@ function getRequestData()
     return json_decode($json, true);
 }
 
-function getDatabase()
+function getDatabase ($entity)
 {
     // Incase the database does not exist, or is empty, we'll default to this
     $emptyDatabaseTemplate = json_encode([
@@ -36,17 +36,17 @@ function getDatabase()
         "cats" => []
     ], JSON_PRETTY_PRINT);
 
-    if (file_exists("database.json") == false) {
-        file_put_contents("database.json", $emptyDatabaseTemplate);
+    if (file_exists("$entity.json") == false) {
+        file_put_contents("$entity.json", $emptyDatabaseTemplate);
     }
 
-    $databaseContents = file_get_contents("database.json");
+    $databaseContents = file_get_contents("$entity.json");
 
     if ($databaseContents == "") {
-        file_put_contents("database.json", $emptyDatabaseTemplate);
+        file_put_contents("$entity.json", $emptyDatabaseTemplate);
     }
     
-    $databaseContents = file_get_contents("database.json");
+    $databaseContents = file_get_contents("$entity.json");
     $databaseData = json_decode($databaseContents, true);
     
     if (is_array($databaseData) == false) {
@@ -56,6 +56,7 @@ function getDatabase()
     return $databaseData;
 }
 
+/*
 function getDatabaseByType($type)
 {
     $database = getDatabase();
@@ -66,6 +67,7 @@ function getDatabaseByType($type)
 
     return $database[$type];
 }
+*/
 
 function requestContainsAllKeys($data, $keys)
 {
