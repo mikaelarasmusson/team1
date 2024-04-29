@@ -1,8 +1,38 @@
 [
     {
         "id": 1,
-        "subject": "Programming",
-        "question": "Hur många dagar är det på ett år?",
-        "answer": "365"
+        "subject": "Media Technology",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "Hur många dagar är det på ett år?",
+                "answer": "365",
+                "alternatives": "?"
+            },
+            {
+                "questionId": 2,
+                "question": "Hur många dagar är det på ett år?",
+                "answer": "365",
+                "alternatives": "?"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "subject": "DU3",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "Vad gör STATE?",
+                "answer": "Lagrar information i en databas",
+                "alternatives": "?"
+            },
+            {
+                "questionId": 2,
+                "question": "Vad är STATE?",
+                "answer": "Lagrar information i en databas",
+                "alternatives": "?"
+            }
+        ]
     }
 ]
