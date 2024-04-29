@@ -1,5 +1,5 @@
 "use strict"
 
-function renderLogin (parentId) {
+function renderLoginRegister (parentId) {
     
 }
