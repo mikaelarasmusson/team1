@@ -14,6 +14,6 @@ function renderLoginContainer (parentId) {
         <p>Don't have an account? Sign up <a href="#"></a>here</p>
     `;
 
-    parent.innerHTML = "";
+    //parent.innerHTML = "";
     parent.append(dom);
 }
