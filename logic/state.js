@@ -1,18 +1,7 @@
 "use strict"
 
 const _STATE = {
-    quotes: [
 
-    ],
-    todos: [
-
-    ],
-    users: [
-
-    ],
-    flashcards: [
-
-    ]
 };
 
 const State = {
@@ -20,13 +9,24 @@ const State = {
     post,
     patch,
     Delete,
-
+    LoginRegister
 }
 
-function get (entity) {
-    const copy = JSON.parse(JSON.stringify(_STATE[entity]));
-    return copy;
-}
+// Skapa get som en funktion som hämtar från databasen, och stoppar in i state-objektet
+// Gör om denna get till getEntity.
+async function get (data) {
+    const entity = data.entity;
+    const rqst = data.rqst;
+
+    const response = await fetcher(rqst);
+    console.log(entity);
+
+    if (response.ok) {
+        const resource = await response.json();
+        _STATE[entity] = resource;
+        console.log(resource);
+    }
+}    
 
 async function post (data) {
     const entity = data.entity;
@@ -44,4 +44,32 @@ async function Delete (data) {
 
 async function renderApp() {
 
+}
+
+async function LoginRegister (data) {
+    const type = data.type;
+    const entity = data.entity;
+    const rqst = data.rqst;
+
+    const response = await fetcher(rqst);
+    console.log(entity);
+
+    if (response.ok) {
+        const resource = await response.json();
+        console.log(resource);
+        
+        switch (type) {
+            case "Login":
+                _STATE[entity] = resource;
+                console.log(_STATE);
+                localStorage.setItem("user", JSON.stringify(resource));
+                const userId = JSON.parse(localStorage.getItem("user"));
+                console.log(userId);
+                //renderApp();
+                break;
+            case "Register":
+                alert("Your register was successful");
+                break;
+        }
+    } 
 }

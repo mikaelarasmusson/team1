@@ -29,29 +29,13 @@ function getRequestData()
 
 function getDatabase ($entity)
 {
-    // Incase the database does not exist, or is empty, we'll default to this
-    $emptyDatabaseTemplate = json_encode([
-        "owners" => [],
-        "dogs" => [],
-        "cats" => []
-    ], JSON_PRETTY_PRINT);
 
-    if (file_exists("$entity.json") == false) {
-        file_put_contents("$entity.json", $emptyDatabaseTemplate);
+    if (file_exists("database/$entity.json") == false) {
+        abort(500, "Internal Server Error (wrong entity)");
     }
 
-    $databaseContents = file_get_contents("$entity.json");
-
-    if ($databaseContents == "") {
-        file_put_contents("$entity.json", $emptyDatabaseTemplate);
-    }
-    
-    $databaseContents = file_get_contents("$entity.json");
+    $databaseContents = file_get_contents("database/$entity.json");
     $databaseData = json_decode($databaseContents, true);
-    
-    if (is_array($databaseData) == false) {
-        abort(500, "Internal Server Error (invalid database)");
-    }
 
     return $databaseData;
 }
@@ -91,17 +75,11 @@ function requestContainsSomeKey($data, $keys)
     return false;
 }
 
-function findItemByKey($type, $key, $value)
+function findItemByKey($entity, $key, $value)
 {
-    $database = getDatabase();
-    
-    if (isset($database[$type]) == false) {
-        abort(500, "Internal Server Error (database type '$type' does not exist)");
-    }
+    $database = getDatabase($entity);
 
-    $databaseByType = $database[$type];
-
-    foreach ($databaseByType as $item) {
+    foreach ($database as $item) {
         if (isset($item[$key]) && $item[$key] == $value) {
             return $item;
         }

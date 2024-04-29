@@ -13,6 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "OPTIONS") {
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 $requestData = getRequestData();
 
+// Gör en get, kolla om userId finns, loopa igenom alla users för att kolla varje user
+// Jämföra ids, om deras id finns i listan, skicka tillbaka ett objekt med en nyckel (logged in == true)
+// Annars skicka med ett objekt med nyckel (logged in == false).
+
 if ($requestMethod == "POST") // Register a new user
 {
     if (empty($requestData)) {
