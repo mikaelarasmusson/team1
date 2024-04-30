@@ -29,7 +29,6 @@ function getRequestData()
 
 function getDatabase ($entity)
 {
-
     if (file_exists("database/$entity.json") == false) {
         abort(500, "Internal Server Error (wrong entity)");
     }
@@ -39,19 +38,6 @@ function getDatabase ($entity)
 
     return $databaseData;
 }
-
-/*
-function getDatabaseByType($type)
-{
-    $database = getDatabase();
-
-    if (isset($database[$type]) == false) {
-        abort(500, "Internal Server Error (database type '$type' does not exist)");
-    }
-
-    return $database[$type];
-}
-*/
 
 function requestContainsAllKeys($data, $keys)
 {
