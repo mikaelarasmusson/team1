@@ -6,6 +6,6 @@ function renderPlayFlashcardsContainer(parentId){
 
   parent.append(dom);
 
-  //renderSwitchFlashcardContainer(selfId);
-  //renderActiveFlashcardContainer(selfId);
+  renderSwitchFlashcardContainer(selfId);
+  renderActiveFlashcardContainer(selfId);
 }

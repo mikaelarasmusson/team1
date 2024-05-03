@@ -8,6 +8,5 @@ function renderSwitchFlashcardContainer(parentId){
 
   parent.append(dom);
 
-  //renderFlashcardNumber(selfId);
   //renderSwitchFlashcard(selfId);
 }
