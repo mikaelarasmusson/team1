@@ -48,7 +48,7 @@ function renderFlashcardBoxes (parent) {
         })
 
         cardBox.addEventListener("click", (e) => {
-            renderPlayFlashcard(flashcard.id);
+            renderPlayFlashcardsContainer(flashcard.id);
         })
 
         // En delete-knapp med ett event för att kunna ta bort
