@@ -42,8 +42,11 @@ function renderFlashcardsList(parentId) {
 }
 
 
+<<<<<<< Updated upstream
 function get(flashcards) {
     const copy = JSON.parse(JSON.stringify(_state[flashcards]));
     return copy;
 }
+=======
+>>>>>>> Stashed changes
 
