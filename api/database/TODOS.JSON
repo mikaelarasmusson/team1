@@ -1,8 +1,10 @@
-{
-    "TODO": [
-        {
-            "id": 1,
-            "mytodo": "Create new website"
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "mytodo": "Create new website"
+    },
+    {
+        "id": 2,
+        "mytodo": "Find a job"
+    }
+]
