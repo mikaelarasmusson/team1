@@ -133,13 +133,7 @@ function updateItemByType($type, $updatedItem)
 
 function deleteItemByType($type, $itemToDelete)
 {
-    $database = getDatabase();
-    
-    if (isset($database[$type]) == false) {
-        abort(500, "Internal Server Error (database type '$type' does not exist)");
-    }
-
-    $databaseByType = $database[$type];
+    $databaseByType = getDatabase($type);
 
     foreach ($databaseByType as $index => $item) {
         if (isset($item["id"]) && $item["id"] == $itemToDelete["id"]) {
@@ -147,31 +141,21 @@ function deleteItemByType($type, $itemToDelete)
         }
     }
 
-    $database[$type] = $databaseByType;
-    $json = json_encode($database, JSON_PRETTY_PRINT);
-    file_put_contents("database.json", $json);
+    $json = json_encode($databaseByType, JSON_PRETTY_PRINT);
+    file_put_contents("database/$type.json", $json);
     return $itemToDelete;
 }
 
-function getUserFromToken($requestToken)
+function getUserFromToken($requestToken, $entity)
 {
-    $database = getDatabase();
+    $users = getDatabase($entity);
     $type = "users";
-    
-    if (isset($database[$type]) == false) {
-        abort(500, "Internal Server Error (database type '$type' does not exist)");
-    }
-
-    $users = $database[$type];
 
     foreach ($users as $user) {
-        if (isset($user["name"], $user["password"])) {
-            $name = $user["name"];
-            $password = $user["password"];
+        if (isset($user["id"])) {
+            $userId = $user["id"];
 
-            $userToken = sha1("$name$password");
-
-            if ($requestToken == $userToken) {
+            if ($requestToken == $userId) {
                 return $user;
             }
         }

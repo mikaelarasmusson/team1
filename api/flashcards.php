@@ -1,0 +1,60 @@
+<?php
+
+require_once("helpers.php");
+
+if ($_SERVER["REQUEST_METHOD"] == "OPTIONS") {
+    header("Access-Control-Allow-Headers: *");
+    header("Access-Control-Allow-Methods: *");
+    header("Access-Control-Allow-Origin: *");
+    exit();
+} else {
+    header("Access-Control-Allow-Origin: *");
+}
+
+$requestMethod = $_SERVER["REQUEST_METHOD"];
+$requestData = getRequestData();
+
+if ($requestMethod == "GET") // Get one or all games
+{
+    $data = getDatabase("FLASHCARDS");
+
+    send(200, $data);
+    
+    /*
+    $user = getUserFromToken($requestData["token"]);
+    $games = getDatabaseByType("games");
+    foreach ($games as $index => &$flashcard) {
+        if ($flashcard["user_id"] != $user["id"]) {
+            array_splice($games, $index, 1);
+        }
+    }
+    */
+}
+else if ($requestMethod == "DELETE") // Delete a flashcard$flashcard (token required)
+{
+    if (empty($requestData)) {
+        abort(400, "Bad Request (empty request)");
+    }
+
+    $deleteKeys = ["id", "userId"];
+
+    if (requestContainsAllKeys($requestData, $deleteKeys) == false) {
+        abort(400, "Bad Request (missing keys)");
+    }
+
+    $flashcard = findItemByKey("FLASHCARDS", "id", $requestData["id"]);
+
+    if ($flashcard == false) {
+        abort(404, "Flashcard Not Found");
+    }
+
+    $user = getUserFromToken($requestData["id"], "users");
+
+    if ($user == false) {
+        abort(400, "Bad Request (invalid user ID)");
+    }
+
+    $deletedFlashcard = deleteItemByType("FLASHCARDS", $flashcard);
+    send(200, $deletedFlashcard);
+}
+?>
