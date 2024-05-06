@@ -17,7 +17,12 @@ $requestData = getRequestData();
 // Jämföra ids, om deras id finns i listan, skicka tillbaka ett objekt med en nyckel (logged in == true)
 // Annars skicka med ett objekt med nyckel (logged in == false).
 
-if ($requestMethod == "POST") // Register a new user
+if ($requestMethod == "GET") // Get all users
+{
+    $users = getDatabase("USERS");
+    send(200, $users);
+}
+else if ($requestMethod == "POST") // Register a new user
 {
     if (empty($requestData)) {
         abort(400, "Bad Request (empty request)");

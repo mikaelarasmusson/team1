@@ -18,7 +18,6 @@ async function renderFlashcardInformation() {
   for (let i = 0; i < flashcards.length; i++) {
     questions.push(flashcards[i].questions);
   }
-
   console.log(questions);
 }
 
