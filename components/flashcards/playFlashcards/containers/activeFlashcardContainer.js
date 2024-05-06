@@ -4,17 +4,26 @@ function renderActiveFlashcardContainer(parentId){
   let dom = document.createElement('div');
   dom.id = selfId;
 
-  const deckTitle = document.createElement("div");
+  const deckTitle = document.createElement("p");
   deckTitle.classList.add("deckTitle");
   deckTitle.textContent = "DU1";
 
-  const deckUsername = document.createElement("div");
+  const deckUsername = document.createElement("p");
   deckUsername.classList.add("deckUsername");
   deckUsername.textContent = "Sabi13";
+
+  const question = document.createElement("h1");
+  question.classList.add("question");
+  question.textContent = `${"questions"[0].question}`;
+
+  const answer = document.createElement("h1");
+  answer.classList.add("answer");
+  answer.textContent = `${"questions"[0].answer}`; //Hur når vi frågan och svaret på exakt kort.
+  console.log(answer);
 
   dom.classList.add('activeFlashcards');
 
   parent.append(dom);
 
-  //renderFlashcardInformation(selfId);
+  renderFlashcardInformation("question", "answer");
 }

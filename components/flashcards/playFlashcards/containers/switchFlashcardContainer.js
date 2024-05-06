@@ -1,6 +1,6 @@
 function renderSwitchFlashcardContainer(parentId){
   const parent = document.getElementById(parentId);
-  const selfId =  'SwitchFlashcardContainer';
+  const selfId =  'switchFlashcardContainer';
   let dom = document.createElement('div');
   dom.id = selfId;
 
