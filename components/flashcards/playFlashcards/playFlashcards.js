@@ -5,3 +5,5 @@ function renderSwitchFlashcard(){
 function renderFlashcardInformation(){
   // vet ej om denna funktion kommer användas, anropas i activeFlashcardContainer
 }
+
+renderPlayFlashcardsContainer('wrapper');
