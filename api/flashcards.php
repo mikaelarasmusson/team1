@@ -36,15 +36,15 @@ else if ($requestMethod == "DELETE") // Delete a flashcard$flashcard (token requ
         abort(400, "Bad Request (empty request)");
     }
 
-    $deleteKeys = ["id", "userId"];
+    $deleteKeys = ["id", "userId", "questionId"];
 
     if (requestContainsAllKeys($requestData, $deleteKeys) == false) {
         abort(400, "Bad Request (missing keys)");
     }
 
-    $flashcard = findItemByKey("FLASHCARDS", "id", $requestData["id"]);
+    $flashcardDeck = findItemByKey("FLASHCARDS", "id", $requestData["id"]);
 
-    if ($flashcard == false) {
+    if ($flashcardDeck == false) {
         abort(404, "Flashcard Not Found");
     }
 
@@ -54,7 +54,16 @@ else if ($requestMethod == "DELETE") // Delete a flashcard$flashcard (token requ
         abort(400, "Bad Request (invalid user ID)");
     }
 
-    $deletedFlashcard = deleteItemByType("FLASHCARDS", $flashcard);
+    $flashcardSingleCard = findItemByKey("FLASHCARDS", "id", "questionId"[0], $requestData["questionId"[0]]);
+
+    if ($flashcardSingleCard == false) {
+        abort(404, "Card not found");
+    }
+
+    $deletedFlashcard = deleteItemByType("FLASHCARDS", $flashcardDeck);
     send(200, $deletedFlashcard);
+} 
+else if ($requestMethod == "POST") {
+
 }
 ?>
