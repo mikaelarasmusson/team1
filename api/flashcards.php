@@ -63,7 +63,4 @@ else if ($requestMethod == "DELETE") // Delete a flashcard$flashcard (token requ
     $deletedFlashcard = deleteItemByType("FLASHCARDS", $flashcardDeck);
     send(200, $deletedFlashcard);
 } 
-else if ($requestMethod == "POST") {
-
-}
 ?>
