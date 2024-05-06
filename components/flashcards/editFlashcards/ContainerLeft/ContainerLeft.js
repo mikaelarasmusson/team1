@@ -6,9 +6,7 @@ function renderContainerLeft(parentId) {
 
     parent.append(dom);
 
-
-
-    renderSaveButton();
-    renderAddFlashcardButton();
-    renderDeleteFlashcardButton();
+    renderSaveButton(selfId);
+    renderAddFlashcardsButton(selfId);
+    renderDeleteFlashcardsButton(selfId);
 }
