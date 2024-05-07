@@ -1,23 +1,43 @@
-async function renderActiveFlashcardContainer(parentId) {
+function renderActiveFlashcardContainer(parentId) {
   const parent = document.getElementById(parentId);
+  const selfId = "activeFlashcardContainer";
+  let dom = document.createElement("div");
+  dom.id = selfId;
+  dom.classList.add("activeFlashcards");
 
-  dom.innerHTML = `
-      <div id = "activeFlahcardContainer">
-      <p class = "deckSubject"> DU1</p>
-      <p class = "deckUsername"> Sabina</p>
-      <h1 class = "question"> Question</h1>
-       </div>
-      `
+  //Lägg en eventlyssnare på kortet som flippar till svaret.
+  // Uppdatera texten till svaret.
 
+  // Spara ett flashcard man gjort
+  parent.append(dom);
+  renderFlashcardContent(selfId);
+}
+
+function renderFlashcardContent(parentId) {
+  const parent = document.getElementById(parentId);
   // alla flashcard
-  let flashcards = await getFlashcardInformation();
+  let flashcards = State.getEntity("flashcards");
   // ta reda på vilket val dom gjort (dvs deck)
   let deckIdChoice = State.getEntity("deckIdChoice");
 
-  // Ta ut och visa en fråga
+  console.log(deckIdChoice);
 
-  // Klicka mellan flera
+  let questionElement;
+  let subject;
 
-  // hämta en fråga från den valda decken
-  parent.append(dom);
+  for (let i = 0; i < flashcards.length; i++) {
+    if (deckIdChoice === flashcards[i].id) {
+      let questions = flashcards[i].questions;
+      let currentCardNum = State.getEntity("currentCardNum");
+      questionElement = questions[currentCardNum];
+      subject = flashcards[i].subject;
+    }
+  }
+
+  parent.innerHTML = `
+  <p class = "deckSubject">${subject}</p>
+  <p class = "deckUsername">Sabina</p>
+  <h1 class = "question">${questionElement.question}</h1>
+  <h1 class = "answer">${questionElement.answer}</h1>
+  `;
 }

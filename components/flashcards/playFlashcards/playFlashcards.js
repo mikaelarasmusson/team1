@@ -10,19 +10,18 @@ async function getFlashcardInformation() {
   console.log(flashcardData);
 
   await State.get(flashcardData);
-  const flashcards = State.getEntity("flashcards");
-  console.log(flashcards);
-  return flashcards;
+  State.saveEntity("deckIdChoice", 1);
+  renderPlayFlashcardsContainer("wrapper");
+
   // Now you can use the `flashcards` variable to work with the flashcards
 
-  const questions = [];
-  for (let i = 0; i < flashcards.length; i++) {
-    questions.push(flashcards[i].questions);
-  }
-  console.log(questions);
+  // const questions = [];
+  // for (let i = 0; i < flashcards.length; i++) {
+  //   questions.push(flashcards[i].questions);
+  // }
+  // console.log(questions);
 
-  return questions[0];
+  // return questions[0];
 }
 
-
-renderPlayFlashcardsContainer("wrapper");
+getFlashcardInformation();
