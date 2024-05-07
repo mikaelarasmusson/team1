@@ -5,8 +5,15 @@ function renderEditActiveFlascardContainer(parentId) {
   dom.id = selfId;
 
   dom.innerHTML = `
+    <div class="postInputContainer">
     <input class = "editInput" placeholder="Add Question Here"></input>
     <button id= "postButton" class="controlsButton">Post</button>
+    </div>
+
+    <div class="postInputContainer">
+    <input class = "editInput" placeholder="Add Answer Here"></input>
+    <button id= "postButton" class="controlsButton">Post</button>
+    </div>
   `;
 
   parent.append(dom);

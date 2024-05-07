@@ -38,7 +38,8 @@ body {
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:20px;
+  flex-direction:column;
+  gap:40px;
 }
 
 #container-left{
@@ -82,4 +83,13 @@ body {
   padding:10px;
   background-color: #F8F8F8;
   color:black;
+}
+
+.editInput:focus{
+  outline:none;
+}
+
+.postInputContainer{
+  display:flex;
+  gap:20px;
 }
