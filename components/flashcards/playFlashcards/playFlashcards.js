@@ -2,7 +2,7 @@ function renderSwitchFlashcard() {
   // Anropas i SwitchFlashcardContainer, ska innehålla pilarna till varje flashcard
 }
 
-async function renderFlashcardInformation() {
+async function getFlashcardInformation() {
   const flashcardData = {
     entity: "flashcards",
     rqst: "../../../api/flashcards.php"
@@ -12,6 +12,7 @@ async function renderFlashcardInformation() {
   await State.get(flashcardData);
   const flashcards = State.getEntity("flashcards");
   console.log(flashcards);
+  return flashcards;
   // Now you can use the `flashcards` variable to work with the flashcards
 
   const questions = [];
@@ -19,6 +20,8 @@ async function renderFlashcardInformation() {
     questions.push(flashcards[i].questions);
   }
   console.log(questions);
+
+  return questions[0];
 }
 
 

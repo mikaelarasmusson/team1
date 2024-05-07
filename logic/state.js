@@ -13,6 +13,10 @@ const State = {
     LoginRegister
 }
 
+function saveEntity (entity, value) {
+    _STATE[entity] = value;
+}
+
 // Skapa get som en funktion som hämtar från databasen, och stoppar in i state-objektet
 // Gör om denna get till getEntity.
 function getEntity(entity) {
