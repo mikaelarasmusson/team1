@@ -36,7 +36,7 @@ else if ($requestMethod == "POST") // Create a new flashcard
         abort(400, "Bad Request (empty request)");
     }
 
-    $flashcardKeys = ["USERS", "id", "subject"];
+    $flashcardKeys = ["USERS", "subject", "questions"];
     $questionKeys = ["FLASHCARDS", "questionId", "question", "answer", "alternatives"];
 
     if (requestContainsAllKeys($requestData, $flashcardKeys) == false) {

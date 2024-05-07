@@ -22,4 +22,4 @@ async function renderFlashcardInformation() {
 }
 
 
-renderPlayFlashcardsContainer('wrapper');
+renderPlayFlashcardsContainer("wrapper");
