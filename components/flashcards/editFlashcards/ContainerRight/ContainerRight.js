@@ -6,8 +6,8 @@ function renderContainerRight(parentId) {
 
     parent.append(dom);
 
-    renderActiveFlashcardContainer(selfId);
     renderSwitchFlashcardContainer(selfId);
+    renderEditActiveFlascardContainer(selfId);
 }
 
 

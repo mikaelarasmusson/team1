@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #F8F8F8;
+  display: flex;
+}
+
+#wrapper {
+  padding: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+#container-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 70vw;
+  height: 50vh;
+}
+
+#switchFlashcardContainer {
+  width: 100%;
+  height: 60px;
+  background-color: #E4CCFF;
+  border-radius: 20px;
+}
+
+#editActiveFlashcardContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #E4CCFF;
+  border-radius: 20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  gap:40px;
+}
+
+#container-left{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 50vh;
+  justify-content:space-around;
+}
+
+.controlsButton{
+  padding:20px;
+  border-radius:10px;
+  border:none;
+  color:#F8F8F8;
+  font-weight:bold;
+  font-size:20px;
+}
+
+#flashcardsSaveButton{
+  background-color: #E4CCFF;
+  color:black;
+}
+
+#flashcardsAddButton{
+  background-color: #5BCB74;
+}
+
+#flashcardsDeleteButton{
+  background-color: #CB5B5B;
+}
+
+.editInput{
+  background-color: #F8F8F8;
+  border:none;
+  padding:20px;
+  border-radius:10px;
+}
+
+#postButton{
+  padding:10px;
+  background-color: #F8F8F8;
+  color:black;
+}
+
+.editInput:focus{
+  outline:none;
+}
+
+.postInputContainer{
+  display:flex;
+  gap:20px;
+}
