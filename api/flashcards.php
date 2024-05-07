@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "OPTIONS") {
 $requestMethod = $_SERVER["REQUEST_METHOD"];
 $requestData = getRequestData();
 
-if ($requestMethod == "GET") // Get one or all games
+if ($requestMethod == "GET") // Get one or all flashcards
 {
     $data = getDatabase("FLASHCARDS");
 
@@ -30,7 +30,46 @@ if ($requestMethod == "GET") // Get one or all games
     }
     */
 }
-else if ($requestMethod == "DELETE") // Delete a flashcard$flashcard (token required)
+else if ($requestMethod == "POST") // Create a new flashcard
+{
+    if (empty($requestData)) {
+        abort(400, "Bad Request (empty request)");
+    }
+
+    $flashcardKeys = ["USERS", "subject", "questions"];
+    $questionKeys = ["FLASHCARDS", "questionId", "question", "answer", "alternatives"];
+
+    if (requestContainsAllKeys($requestData, $flashcardKeys) == false) {
+        abort(400, "Bad Request (missing flashcard keys)");
+    }
+
+    if (requestContainsAllKeys($requestData["questions"], $questionKeys) == false) {
+        abort(400, "Bad Request (missing question keys)");
+    }
+
+    $user = findItemByKey("USERS", "username", $requestData["user"]);
+
+    // Make sure that the creator (user_id) is the same as the owner of the token
+    if ($user == false) {
+        abort(400, "Bad Request (invalid user)");
+    }
+
+    $flashcard = findItemByKey("FLASHCARDS", "id", $requestData["id"]);
+
+    if ($flashcard != false) {
+        abort(400, "Bad Request (flashcard already exists)");
+    }
+
+    $requestData["USERS"] = $user["id"];
+    $newFlashcard = insertItemByType("FLASHCARDS", $flashcardKeys, $requestData);
+
+    $newQuestion = $requestData["questions"];
+    $newQuestion["FLASHCARDS"] = $newFlashcard["id"];
+    $newQuestion = insertItemByType("questions", $questionKeys, $newQuestion);
+
+    send(201, ["FLASHCARDS" => $newFlashcard, "questions" => $newQuestion]);
+}
+else if ($requestMethod == "DELETE") // Delete a flashcard
 {
     if (empty($requestData)) {
         abort(400, "Bad Request (empty request)");
@@ -63,7 +102,4 @@ else if ($requestMethod == "DELETE") // Delete a flashcard$flashcard (token requ
     $deletedFlashcard = deleteItemByType("FLASHCARDS", $flashcardDeck);
     send(200, $deletedFlashcard);
 } 
-else if ($requestMethod == "POST") {
-
-}
 ?>

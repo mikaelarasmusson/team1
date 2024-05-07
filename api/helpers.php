@@ -149,7 +149,7 @@ function deleteItemByType($type, $itemToDelete)
 function getUserFromToken($requestToken, $entity)
 {
     $users = getDatabase($entity);
-    $type = "users";
+    $type = "USERS";
 
     foreach ($users as $user) {
         if (isset($user["id"])) {
