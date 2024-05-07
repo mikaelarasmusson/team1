@@ -10,7 +10,8 @@ const State = {
     post,
     patch,
     Delete,
-    LoginRegister
+    LoginRegister,
+    saveEntity
 }
 
 function saveEntity (entity, value) {

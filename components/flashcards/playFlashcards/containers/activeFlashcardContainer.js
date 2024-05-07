@@ -1,43 +1,43 @@
-async function renderActiveFlashcardContainer(parentId){
+ function renderActiveFlashcardContainer(parentId){
   const parent = document.getElementById(parentId);
   const selfId =  "activeFlashcardContainer";
   let dom = document.createElement("div");
   dom.id = selfId;
-
-  const deckSubject = document.createElement("p");
-  deckSubject.classList.add("deckSubject");
-  deckSubject.textContent = "DU1";
-
-  const deckUsername = document.createElement("p");
-  deckUsername.classList.add("deckUsername");
-  deckUsername.textContent = "Sabi13";
-
-  // alla flashcard
-  let flashcards = await getFlashcardInformation();
-  // ta reda på vilket val dom gjort (dvs deck)
-  let deckIdChoice = State.getEntity("deckIdChoice");
-  
-  // Ta ut och visa en fråga
-
-  // Klicka mellan flera
-
-  // hämta en fråga från den valda decken
-
-
-  const question = document.createElement("h1");
-  question.classList.add("question");
-  question.textContent 
-
-  const answer = document.createElement("h1");
-  answer.classList.add("answer");
-  answer.textContent //Hur når vi frågan och svaret på exakt kort.
-  console.log(answer);
-
   dom.classList.add("activeFlashcards");
 
+  //Lägg en eventlyssnare på kortet som flippar till svaret.
+  // Uppdatera texten till svaret.
+  
+  // Spara ett flashcard man gjort
   parent.append(dom);
+  renderFlashcardContent(selfId);
+}
 
+function renderFlashcardContent (parentId) {
+  const parent = document.getElementById(parentId);
+  // alla flashcard
+  let flashcards = State.getEntity("flashcards");
+  // ta reda på vilket val dom gjort (dvs deck)
+  let deckIdChoice = State.getEntity("deckIdChoice");
 
+  console.log(deckIdChoice);
+  
+  let questionElement;
+  let subject;
 
+  for (let i = 0; i < flashcards.length; i++) {
+    if (deckIdChoice === flashcards[i].id) {
+      let questions = flashcards[i].questions;
+      let currentCardNum = State.getEntity("currentCardNum");
+      questionElement = questions[currentCardNum];
+      subject = flashcards[i].subject;
+    }
+  }
 
+  parent.innerHTML = `
+  <p class = "deckSubject">${subject}</p>
+  <p class = "deckUsername">Sabina</p>
+  <h1 class = "question">${questionElement.question}</h1>
+  <h1 class = "answer">${questionElement.answer}</h1>
+  `;
 }

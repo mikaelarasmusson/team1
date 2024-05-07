@@ -49,7 +49,7 @@ function renderFlashcardBoxes (parent) {
 
         cardBox.addEventListener("click", (e) => {
             State.saveEntity("deckIdChoice", flashcard.id);
-            renderActiveFlashcardContainer();
+            renderPlayFlashcardsContainer();
             // spara undan informationen i s
         })
 
