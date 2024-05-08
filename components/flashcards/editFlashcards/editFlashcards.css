@@ -68,6 +68,10 @@ body {
   font-size:20px;
 }
 
+.nameSubjectButton:hover{
+  cursor:pointer;
+}
+
 #container-left{
   display: flex;
   flex-direction: column;
@@ -83,6 +87,10 @@ body {
   color:#F8F8F8;
   font-weight:bold;
   font-size:20px;
+}
+
+.controlsButton:hover{
+  cursor: pointer;
 }
 
 #flashcardsSaveButton{
