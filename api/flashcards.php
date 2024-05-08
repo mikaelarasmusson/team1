@@ -75,7 +75,7 @@ else if ($requestMethod == "DELETE") // Delete a flashcard
         abort(400, "Bad Request (empty request)");
     }
 
-    $deleteKeys = ["id", "userId", "questionId"];
+    $deleteKeys = ["id", "userId"];
 
     if (requestContainsAllKeys($requestData, $deleteKeys) == false) {
         abort(400, "Bad Request (missing keys)");
@@ -91,6 +91,12 @@ else if ($requestMethod == "DELETE") // Delete a flashcard
 
     if ($user == false) {
         abort(400, "Bad Request (invalid user ID)");
+    }
+
+    $deleteSingleCardKeys = ["id", "userId", "questionId"];
+
+    if (requestContainsAllKeys($requestData, $deleteSingleCardKeys) == false) {
+        abort(400, "Bad Request (missing keys)");
     }
 
     $flashcardSingleCard = findItemByKey("FLASHCARDS", "id", "questionId"[0], $requestData["questionId"[0]]);
