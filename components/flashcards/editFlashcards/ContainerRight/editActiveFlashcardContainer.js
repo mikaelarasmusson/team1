@@ -34,5 +34,8 @@ function renderEditActiveFlascardContainer(parentId) {
     </div>
   `;
 
+  // ta bort alla post knappar och bara ha Save?? Spara allt i samma knapptryck
+  // Går det ens att spara individuellt???
+
   parent.append(dom);
 }

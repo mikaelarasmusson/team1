@@ -41,10 +41,44 @@ async function get(data) {
 }
 
 async function post(data) {
-    const entity = data.entity;
-    const rqst = data.rqst;
+    const entity = data.entity; //flashcards
+    const rqst = data.rqst; // alla nycklar i flashcards
 
     const response = await fetcher(request);
+    if (!response.ok){
+      alert ('Something went wrong' + response.statusText);
+      return;
+    }
+    // om  response blir sant --> falskt och då exekveras koden.
+
+  const resource = await response.json();
+  console.log(resource);
+  _STATE[entity].push(resource);
+
+  console.log(resource.id);
+  let instanceData;
+  for(let element of _state[entity]){
+    if(element.id === resource.id){
+      instanceData = JSON.parse(JSON.stringify(element));
+    }
+  }
+
+  console.log(instanceData);
+
+  switch (entity) {
+    case 'flashcards':
+      //update right component
+      post_instance_booksContainer(instanceData); // funktionen för att uppdatera UI, Funktionen ska vara i booksList (Ul filen) 
+      renderCounter();
+       break;
+
+    case 'characters':
+      //update right component
+      post_instance_charactersContainer(instanceData);
+      renderCounter();
+       break;
+  }
+    
 }
 
 async function patch(data) {
