@@ -7,6 +7,7 @@ async function renderFlashcards() {
     }
 
     await State.get(flashcardData);
+    renderNavBar("wrapper");
     renderFlashcardBoxes("wrapper");
 }
 
@@ -77,5 +78,4 @@ function deleteFlashcardBox (id) {
     dom.remove();
 }
 
-renderNavBar();
 renderFlashcards();

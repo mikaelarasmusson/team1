@@ -1,4 +1,5 @@
-function renderNavBar() {
+function renderNavBar (parentId) {
+    const parent = document.getElementById(parentId);
     const navBar = document.createElement('nav');
     navBar.classList.add('navbar');
 
@@ -30,7 +31,7 @@ function renderNavBar() {
 
     navBar.appendChild(boxContainer);
 
-    //document.body.appendChild(navBar);
+    parent.appendChild(navBar);
 }
 
 renderNavBar();
