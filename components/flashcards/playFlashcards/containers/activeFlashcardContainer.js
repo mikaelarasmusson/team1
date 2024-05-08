@@ -20,6 +20,12 @@ function renderFlashcardContent(parentId) {
   // ta reda på vilket val dom gjort (dvs deck)
   let deckIdChoice = State.getEntity("deckIdChoice");
 
+  const editButton = document.createElement("div");
+  editButton.classList.add("edit-Button");
+  editButton.innerHTML = `
+  <button>id="edit-Button"></button>`;
+  parent.append(editButton);
+
   console.log(deckIdChoice);
 
   let questionElement;
@@ -40,4 +46,6 @@ function renderFlashcardContent(parentId) {
   <h1 class = "question">${questionElement.question}</h1>
   <h1 class = "answer">${questionElement.answer}</h1>
   `;
+
 }
+
