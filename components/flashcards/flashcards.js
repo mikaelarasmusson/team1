@@ -77,4 +77,5 @@ function deleteFlashcardBox (id) {
     dom.remove();
 }
 
+renderNavBar();
 renderFlashcards();

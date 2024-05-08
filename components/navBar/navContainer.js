@@ -30,7 +30,7 @@ function renderNavBar() {
 
     navBar.appendChild(boxContainer);
 
-    document.body.appendChild(navBar);
+    //document.body.appendChild(navBar);
 }
 
 renderNavBar();
