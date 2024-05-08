@@ -13,8 +13,7 @@ function renderEditActiveFlascardContainer(parentId) {
       </div>
 
       <div class="nameSubjectPost">
-        <input class = "nameSubject" placeholder="Add Name Here"></input>
-        <button class="nameSubjectButton">Post</button>
+        <p>Name</p>
       </div>
 
     </div>

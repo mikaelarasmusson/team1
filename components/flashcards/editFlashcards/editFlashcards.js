@@ -31,3 +31,42 @@ postButton.addEventListener('click', () => {
  function post_instance_flashcards(instanceData){
   renderFlashcardsInput('books-list', instanceData);
 }
+
+
+/*
+
+CHAT GPT KOD
+
+document.addEventListener('DOMContentLoaded', function() {
+  const postQuestionButton = document.querySelector('.postQuestionButton');
+  const postAnswerButton = document.querySelector('.postAnswerButton');
+  const flashcardsContainer = document.getElementById('editActiveFlashcardContainer');
+
+  function createFlashcard(text) {
+    const flashcard = document.createElement('div');
+    flashcard.classList.add('flashcard');
+    flashcard.textContent = text;
+    return flashcard;
+  }
+
+  postQuestionButton.addEventListener('click', function() {
+    const questionInput = document.querySelector('.editInput');
+    const question = questionInput.value.trim();
+    if (question !== '') {
+      const flashcard = createFlashcard(`Question: ${question}`);
+      flashcardsContainer.appendChild(flashcard);
+      questionInput.value = '';
+    }
+  });
+
+  postAnswerButton.addEventListener('click', function() {
+    const answerInput = document.querySelectorAll('.editInput')[1];
+    const answer = answerInput.value.trim();
+    if (answer !== '') {
+      const flashcard = createFlashcard(`Answer: ${answer}`);
+      flashcardsContainer.appendChild(flashcard);
+      answerInput.value = '';
+    }
+  });
+});
+*/
