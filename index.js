@@ -15,6 +15,9 @@ async function renderApp() {
     renderLoginContainer("wrapper");
     }
 
+    
 }
+
+renderDashboard ()
 
 

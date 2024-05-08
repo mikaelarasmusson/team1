@@ -2,6 +2,8 @@ function renderSwitchFlashcard() {
   // Anropas i SwitchFlashcardContainer, ska innehålla pilarna till varje flashcard
 }
 
+// Här ska hela playflashcards renderas när html tas bort.
+
 async function getFlashcardInformation() {
   const flashcardData = {
     entity: "flashcards",
@@ -25,3 +27,4 @@ async function getFlashcardInformation() {
 }
 
 getFlashcardInformation();
+renderNavBar();

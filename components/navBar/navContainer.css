@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Manrope-Regular';
+    src: url('../../fonts/Manrope-Regular.ttf') format('truetype');
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color:#6C3DAB;
+    color:#E4CCFF;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+
+.logo {
+    max-width: 100px;
+    border-radius: 5px;
+    height: 39px;
+}
+
+.box-container {
+    display: flex;
+    text-align: center;
+    flex: 1; 
+    justify-content: flex-end; 
+}
+    
+
+
+.box {
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px; 
+    background-color:#E4CCFF;
+    cursor: pointer;
+    flex: 0 0 auto; 
+    width: 14vw;
+    border-radius: 5px;
+    padding-right: 0px;
+}
+
+.box a {
+    color: black; 
+    text-decoration: none;
+    font-family: 'Manrope-Regular', sans-serif;
+}
+
+
+.box:hover {
+    background-color: #777;
+}

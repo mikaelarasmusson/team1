@@ -13,12 +13,12 @@ async function renderFlashcards() {
 function renderFlashcardBoxes (parent) {
     const parentDom = document.getElementById(parent);
     const flashcards = State.getEntity("flashcards");
-    const pageTitleCont = document.createElement("div");
-    pageTitleCont.classList.add("page-title");
-    pageTitleCont.innerHTML = `
-    <h1>My Flashcards</h1> 
-    `;
-    parentDom.append(pageTitleCont);
+    const pageTitle = document.createElement("h1");
+    pageTitle.classList.add("page-title");
+    pageTitle.textContent = "My Flashcards";
+    const flashcardContainer = document.createElement("div");
+    flashcardContainer.classList.add("flashcard-container");
+    parentDom.append(pageTitle, flashcardContainer);
 
     for (const flashcard of flashcards) {
         const cardBox = document.createElement("div");
@@ -61,7 +61,7 @@ function renderFlashcardBoxes (parent) {
 
         // En delete-knapp med ett event för att kunna ta bort
         // Samma som U2.
-        parentDom.append(cardBox);
+        flashcardContainer.append(cardBox);
     }
 
 }

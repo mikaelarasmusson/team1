@@ -1,19 +1,17 @@
 [
     {
         "id": 1,
-        "subject": "Media Technology",
+        "subject": "Media Technology 1",
         "questions": [
             {
                 "questionId": 1,
-                "question": "Hur många dagar är det på ett år?",
-                "answer": "365",
-                "alternatives": "?"
+                "question": "How many days is there in a year?",
+                "answer": "365"
             },
             {
                 "questionId": 2,
-                "question": "Vem är Marshall McLuhan",
-                "answer": "En king",
-                "alternatives": "?"
+                "question": "Who is Marshall McLuhan?",
+                "answer": "A king"
             }
         ]
     },
@@ -23,15 +21,94 @@
         "questions": [
             {
                 "questionId": 1,
-                "question": "Vad gör STATE?",
-                "answer": "Lagrar information i en databas",
-                "alternatives": "?"
+                "question": "What is State?",
+                "answer": "A form of database that holds information"
             },
             {
                 "questionId": 2,
-                "question": "Vad är STATE?",
-                "answer": "Lagrar information i en databas",
-                "alternatives": "?"
+                "question": "What is CSS?",
+                "answer": "Cascading Style Sheet, for UI-design"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "subject": "Media Technology 2",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "Who is Hassan?",
+                "answer": "Most chilled teacher"
+            },
+            {
+                "questionId": 2,
+                "question": "Who is Johannes?",
+                "answer": "Cool design teacher with academic timing"
+            }
+        ]
+ 
+    },
+    {
+        "id": 4,
+        "subject": "DU1",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "What is HTML?",
+                "answer": "DOM mother"
+            },
+            {
+                "questionId": 2,
+                "question": "Who is Erik?",
+                "answer": "A cool teacher with passion for code and math"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "subject": "PHP",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "Why do we use $ in php?",
+                "answer": "To declare a variable, syntax"
+            },
+            {
+                "questionId": 2,
+                "question": "What is CSS?",
+                "answer": "Cascading Style Sheet, for UI-design"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "subject": "Crossmedia",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "What is State?",
+                "answer": "A form of database that holds information"
+            },
+            {
+                "questionId": 2,
+                "question": "What is CSS?",
+                "answer": "Cascading Style Sheet, for UI-design"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "subject": "JavaScript",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "What is State?",
+                "answer": "A form of database that holds information"
+            },
+            {
+                "questionId": 2,
+                "question": "What is CSS?",
+                "answer": "Cascading Style Sheet, for UI-design"
             }
         ]
     }
