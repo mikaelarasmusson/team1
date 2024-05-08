@@ -13,6 +13,12 @@ async function renderFlashcards() {
 function renderFlashcardBoxes (parent) {
     const parentDom = document.getElementById(parent);
     const flashcards = State.getEntity("flashcards");
+    const pageTitleCont = document.createElement("div");
+    pageTitleCont.classList.add("page-title");
+    pageTitleCont.innerHTML = `
+    <h1>My Flashcards</h1> 
+    `;
+    parentDom.append(pageTitleCont);
 
     for (const flashcard of flashcards) {
         const cardBox = document.createElement("div");
@@ -22,7 +28,7 @@ function renderFlashcardBoxes (parent) {
 
         cardBox.innerHTML = `
         <p>${flashcard.subject}</p>
-        <button class="delete-button">Delete</button>
+        <button class="delete-button"></button>
         `;
 
         cardBox.querySelector(".delete-button").addEventListener("click", (e) => {
