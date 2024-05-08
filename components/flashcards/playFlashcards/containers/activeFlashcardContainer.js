@@ -27,7 +27,7 @@ function renderFlashcardContent(parentId) {
 
   editButton.addEventListener("click", (e) => {
     State.saveEntity("deckIdChoice", flashcards.id);
-    renderActiveFlashcardContainer();
+    renderContainerRight();
 
   })
 
@@ -52,6 +52,20 @@ function renderFlashcardContent(parentId) {
   <h1 class = "question">${questionElement.question}</h1>
   <h1 class = "answer">${questionElement.answer}</h1>
   `;
+
+
   parent.append(editButton);
 }
 
+function addEditButton(parentId) {
+  const editButton = document.createElement("div");
+  editButton.classList.add("edit_Button");
+  editButton.innerHTML = `
+  <button id="edit-Button">Edit</button>`;
+
+  editButton.addEventListener("click", (e) => {
+    State.saveEntity("deckIdChoice", flashcards.id);
+
+  });
+
+}
