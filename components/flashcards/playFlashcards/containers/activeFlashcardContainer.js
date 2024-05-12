@@ -57,15 +57,3 @@ function renderFlashcardContent(parentId) {
   parent.append(editButton);
 }
 
-function addEditButton(parentId) {
-  const editButton = document.createElement("div");
-  editButton.classList.add("edit_Button");
-  editButton.innerHTML = `
-  <button id="edit-Button">Edit</button>`;
-
-  editButton.addEventListener("click", (e) => {
-    State.saveEntity("deckIdChoice", flashcards.id);
-
-  });
-
-}
