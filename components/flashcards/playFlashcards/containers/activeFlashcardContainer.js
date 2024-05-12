@@ -54,6 +54,5 @@ function renderFlashcardContent(parentId) {
   `;
 
 
-  parent.append(editButton);
-}
 
+}
