@@ -49,7 +49,6 @@ else if ($requestMethod == "POST") // Create a new flashcard
 
     $user = findItemByKey("USERS", "username", $requestData["user"]);
 
-    // Make sure that the creator (user_id) is the same as the owner of the token
     if ($user == false) {
         abort(400, "Bad Request (invalid user)");
     }
@@ -69,7 +68,7 @@ else if ($requestMethod == "POST") // Create a new flashcard
 
     send(201, ["FLASHCARDS" => $newFlashcard, "questions" => $newQuestion]);
 } 
-else if ($requestMethod == "PATCH") // Like or unlike a game (token required)
+else if ($requestMethod == "PATCH") 
 {
     if (empty($requestData)) {
         abort(400, "Bad Request (empty request)");
@@ -83,33 +82,29 @@ else if ($requestMethod == "PATCH") // Like or unlike a game (token required)
 
     $user = getUserFromToken($requestData["id"], "users");
 
-    // Make sure that the "liker" (user_id) is the same as the owner of the token
     if ($user == false) {
         abort(400, "Bad Request (invalid token)");
     }
     
-    $game = findItemByKey("games", "id", $requestData["id"]);
+    $flashcardSingleCard = findItemByKey("FLASHCARDS", "id", "questionId"[0], $requestData["questionId"[0]]);
 
-    if ($game == false) {
+    if ($flashcardSingleCard == false) {
         abort(404, "Game Not Found");
     }
-
-    // Toggle the user "favorite"
-   
-    if ($game["favorite"] == false) {
-        $game["favorite"] = true;
-    } else {
-        $game["favorite"] = false;
-    }
-    
  
-    $updatedGame = updateItemByType("games", $game);
+    $updatedGame = updateItemByType("FLASHCARDS", $flashcardSingleCard);
     send(200, $updatedGame);
 }
 else if ($requestMethod == "DELETE") // Delete a flashcard
 {
     if (empty($requestData)) {
         abort(400, "Bad Request (empty request)");
+    }
+
+    $user = getUserFromToken($requestData["id"], "users");
+
+    if ($user == false) {
+        abort(400, "Bad Request (invalid user ID)");
     }
 
     $deleteKeys = ["id", "userId"];
@@ -124,12 +119,6 @@ else if ($requestMethod == "DELETE") // Delete a flashcard
         abort(404, "Flashcard Not Found");
     }
 
-    $user = getUserFromToken($requestData["id"], "users");
-
-    if ($user == false) {
-        abort(400, "Bad Request (invalid user ID)");
-    }
-
     $deleteSingleCardKeys = ["id", "userId", "questionId"];
 
     if (requestContainsAllKeys($requestData, $deleteSingleCardKeys) == false) {
@@ -142,7 +131,10 @@ else if ($requestMethod == "DELETE") // Delete a flashcard
         abort(404, "Card not found");
     }
 
-    $deletedFlashcard = deleteItemByType("FLASHCARDS", $flashcardDeck);
-    send(200, $deletedFlashcard);
+    $deletedFlashcardDeck = deleteItemByType("FLASHCARDS", $flashcardDeck);
+    send(200, $deletedFlashcardDeck);
+
+    $deletedSingleFlashcard = deleteItemByType("FLASHCARDS", $flashcardSingleCard);
+    send(200, $deletedSingleFlashcard);
 } 
 ?>
