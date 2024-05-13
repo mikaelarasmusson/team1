@@ -7,7 +7,7 @@ function renderAddFlashcardsButton(parentId) {
     flashcardsAddButton.textContent = "+";
 
     flashcardsAddButton.addEventListener("click", (e) => {
-
+        renderEditActiveFlascardContainer(parentId);
     });
 
     parent.append(flashcardsAddButton);
@@ -37,6 +37,7 @@ function renderSaveButton(parentId) {
     flashcardsSaveButton.textContent = "Save";
 
     flashcardsSaveButton.addEventListener("click", (e) => {
+
 
     });
 
