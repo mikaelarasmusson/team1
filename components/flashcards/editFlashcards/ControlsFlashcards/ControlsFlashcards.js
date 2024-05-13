@@ -36,8 +36,27 @@ function renderSaveButton(parentId) {
     flashcardsSaveButton.id = "flashcardsSaveButton";
     flashcardsSaveButton.textContent = "Save";
 
-    flashcardsSaveButton.addEventListener("click", (e) => {
+    flashcardsSaveButton.addEventListener("click", async (e) => {
+        const flashcardData = {
+            userId: 1,
+            subject: "DU1",
+            questions: ["Test", "Test"],
+            answers: ["Test", "Test"]
+        };
 
+        const response = await fetch("../../api/flashcards.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(flashcardData)
+        });
+
+        if (response.ok) {
+            console.log("Flashcard saved");
+        } else {
+            console.error("Failed to save");
+        }
 
     });
 
