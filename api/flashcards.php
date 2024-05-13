@@ -37,7 +37,7 @@ else if ($requestMethod == "POST") // Create a new flashcard
     }
 
     $flashcardKeys = ["USERS", "subject", "questions"];
-    $questionKeys = ["FLASHCARDS", "questionId", "question", "answer", "alternatives"];
+    $questionKeys = ["FLASHCARDS", "questionId", "question", "answer"];
 
     if (requestContainsAllKeys($requestData, $flashcardKeys) == false) {
         abort(400, "Bad Request (missing flashcard keys)");
@@ -56,7 +56,7 @@ else if ($requestMethod == "POST") // Create a new flashcard
 
     $flashcard = findItemByKey("FLASHCARDS", "id", $requestData["id"]);
 
-    if ($flashcard != false) {
+    if ($flashcard == false) {
         abort(400, "Bad Request (flashcard already exists)");
     }
 
@@ -68,6 +68,43 @@ else if ($requestMethod == "POST") // Create a new flashcard
     $newQuestion = insertItemByType("questions", $questionKeys, $newQuestion);
 
     send(201, ["FLASHCARDS" => $newFlashcard, "questions" => $newQuestion]);
+} 
+else if ($requestMethod == "PATCH") // Like or unlike a game (token required)
+{
+    if (empty($requestData)) {
+        abort(400, "Bad Request (empty request)");
+    }
+
+    $likeKeys = ["id", "userId"];
+
+    if (requestContainsAllKeys($requestData, $likeKeys) == false) {
+        abort(400, "Bad Request (missing keys)");
+    }
+
+    $user = getUserFromToken($requestData["id"], "users");
+
+    // Make sure that the "liker" (user_id) is the same as the owner of the token
+    if ($user == false) {
+        abort(400, "Bad Request (invalid token)");
+    }
+    
+    $game = findItemByKey("games", "id", $requestData["id"]);
+
+    if ($game == false) {
+        abort(404, "Game Not Found");
+    }
+
+    // Toggle the user "favorite"
+   
+    if ($game["favorite"] == false) {
+        $game["favorite"] = true;
+    } else {
+        $game["favorite"] = false;
+    }
+    
+ 
+    $updatedGame = updateItemByType("games", $game);
+    send(200, $updatedGame);
 }
 else if ($requestMethod == "DELETE") // Delete a flashcard
 {
