@@ -14,19 +14,19 @@ body {
 }
 
 .flashcard-container {
-    
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
     gap: 1rem;
+    margin: 0 20vw 0 20vw;
 }
 
 .page-title {
-    margin-bottom: 4.5rem;
+    margin: 4.5rem 0 4.5rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
+    font-size: 20px;
     font-family: ManropeRegular;
     color: #102A4E;
 }
@@ -42,7 +42,7 @@ body {
     height: 16vh;
 
     font-family: ManropeRegular;
-    font-size: 0.9rem;
+    font-size: 16px;
 }
 
 .flashcard-box p {
