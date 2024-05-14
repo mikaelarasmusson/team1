@@ -11,6 +11,16 @@ function renderActiveFlashcardContainer(parentId) {
   // Spara ett flashcard man gjort
   parent.append(dom);
   renderFlashcardContent(selfId);
+
+  let questions = document.querySelector('.question');
+  let answers = document.querySelector('.answer');
+  answers.classList.add('flip');
+
+  dom.addEventListener('click', (e) =>{
+    questions.classList.toggle('flip');
+    answers.classList.toggle('flip');
+  });
+
 }
 
 function renderFlashcardContent(parentId) {
@@ -56,3 +66,4 @@ function renderFlashcardContent(parentId) {
 
 
 }
+

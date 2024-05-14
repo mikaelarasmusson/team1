@@ -35,3 +35,19 @@ body {
     background-color: #E4CCFF;
     border-radius: 20px;
 }
+
+#activeFlashcardContainer:hover{
+    cursor:pointer;
+}
+
+.question{
+    position:absolute;
+}
+
+.answer{
+    position:absolute;  
+}
+
+.flip{
+    display:none;
+}
