@@ -34,4 +34,4 @@ function renderNavBar (parentId) {
     parent.appendChild(navBar);
 }
 
-renderNavBar();
+//renderNavBar();

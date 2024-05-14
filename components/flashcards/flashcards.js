@@ -57,7 +57,7 @@ function renderFlashcardBoxes (parent) {
         cardBox.addEventListener("click", (e) => {
             State.saveEntity("deckIdChoice", flashcard.id);
             renderPlayFlashcardsContainer();
-            // spara undan informationen i s
+            // spara undan informationen i state
         })
 
         // En delete-knapp med ett event för att kunna ta bort

@@ -121,7 +121,14 @@ function updateItemByType($type, $updatedItem)
 
     foreach ($databaseByType as $index => $item) {
         if (isset($item["id"]) && $item["id"] == $updatedItem["id"]) {
-            $databaseByType[$index] = $updatedItem;
+            // Find the question to update
+            foreach ($item["questions"] as $questionIndex => $question) {
+                if ($question["questionId"] == $updatedItem["questions"][0]["questionId"]) {
+                    // Update the question
+                    $item["questions"][$questionIndex] = $updatedItem["questions"][0];
+                }
+            }
+            $databaseByType[$index] = $item;
         }
     }
 
