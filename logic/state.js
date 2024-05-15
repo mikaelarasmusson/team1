@@ -41,14 +41,78 @@ async function get(data) {
 }
 
 async function post(data) {
-    const entity = data.entity;
-    const rqst = data.rqst;
+    const entity = data.entity; //flashcards
+    const rqst = data.rqst; // alla nycklar i flashcards
 
-    const response = await fetcher(request);
+    const response = await fetcher(rqst);
+    if (!response.ok) {
+      alert ('Something went wrong' + response.statusText);
+      return;
+    }
+    // om  response blir sant --> falskt och då exekveras koden.
+
+    const resource = await response.json();
+    console.log(resource);
+    _STATE[entity].push(resource);
+
+    console.log(resource.id);
+    let instanceData;
+    for (let element of _STATE[entity]) {
+        if(element.id === resource.id){
+        instanceData = JSON.parse(JSON.stringify(element));
+        }
+    }
+
+    console.log(instanceData);
+
+    switch (entity) {
+        case 'flashcards':
+        //update right component
+        post_instance_booksContainer(instanceData); // funktionen för att uppdatera UI, Funktionen ska vara i booksList (Ul filen) 
+        renderCounter();
+        break;
+
+        case 'characters':
+        //update right component
+            post_instance_charactersContainer(instanceData);
+      renderCounter();
+        break;
+    }
+    
 }
 
 async function patch(data) {
+    const entity = data.entity;
+    const rqst = data.rqst;
 
+    const response = await fetcher(rqst);
+
+    if (response !== undefined) {
+        const resource = await response.json();
+
+        const flashcardId = resource.id;
+        const questionId = resource.questions[0].questionId;
+        const updatedQuestion = resource.questions[0].question;
+        const updatedAnswer = resource.questions[0].answer;
+
+        const flashcardToUpdate = _STATE[entity].find(element => element.id === flashcardId);
+
+        if (flashcardToUpdate) {
+            const questionToUpdate = flashcardToUpdate.questions.find(question => question.questionId === questionId);
+
+            if (questionToUpdate) {
+                questionToUpdate.question = updatedQuestion;
+                questionToUpdate.answer = updatedAnswer;
+            } else {
+                // Om questionId inte hittas.
+                console.log("QuestionId not found in the flashcard");
+            }
+        } else {
+            // Om idt på flashcard inte hittas.
+            console.log("FlashcardId not found");
+        }
+        // renderFlashcardsInput(updatedQuestion, updatedAnswer);
+    }
 }
 
 async function Delete(data) {
@@ -70,16 +134,8 @@ async function Delete(data) {
             case "flashcards":
                 deleteFlashcardBox(deletedData[0].id);
                 break;
-            case "actors":
-                deleteInstanceActorsContainer(deletedData[0]);
-                renderCounterList("container-left");
-                break;
         }
     }
-}
-
-async function renderApp() {
-
 }
 
 async function LoginRegister(data) {

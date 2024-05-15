@@ -9,27 +9,24 @@ body {
 }
 
 #wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-
-    height: 80%;
+    height: 100%;
     width: 100%;
-    padding: 0 10vw 0 10vw;
+}
+
+.flashcard-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
     gap: 1rem;
+    margin: 0 20vw 0 20vw;
 }
 
 .page-title {
-    grid-row: 1;
-    grid-column: 3;
-
+    margin: 4.5rem 0 4.5rem 0;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.page-title h1 {
-    font-size: 1.2rem;
+    font-size: 20px;
     font-family: ManropeRegular;
     color: #102A4E;
 }
@@ -41,16 +38,17 @@ body {
     background-color: #e4ccff;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 1px rgb(228 204 255 / 60%);
-    grid-row: 2;
+    grid-row: auto;
+    height: 16vh;
 
     font-family: ManropeRegular;
-    font-size: 0.9rem;
+    font-size: 16px;
 }
 
 .flashcard-box p {
     margin-top: 0;
     margin-bottom: 4px;
-    margin-left: 5px;
+    margin-left: 7px;
     color: #102A4E;
 }
 

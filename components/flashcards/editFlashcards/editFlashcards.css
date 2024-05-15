@@ -19,8 +19,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 70vw;
-  height: 50vh;
+  width: 55vw;
+  height: 65vh;
 }
 
 #switchFlashcardContainer {
@@ -31,15 +31,45 @@ body {
 }
 
 #editActiveFlashcardContainer {
-  width: 100%;
   height: 100%;
   background-color: #E4CCFF;
   border-radius: 20px;
   display:flex;
-  justify-content:center;
-  align-items:center;
   flex-direction:column;
-  gap:40px;
+  gap:90px;
+  padding:20px;
+}
+
+.subjectNameContainer{
+  display:flex;
+  justify-content:space-between;
+}
+
+.nameSubject{
+  background-color: #F8F8F8;
+  border:none;
+  padding:20px;
+  border-radius:10px;
+  height:0.3vh;
+
+}
+
+.nameSubject:focus{
+  outline:none;
+}
+
+.nameSubjectButton{
+  padding:10px;
+  border-radius:10px;
+  border:none;
+  background-color:#F8F8F8;
+  color:black;
+  font-weight:bold;
+  font-size:20px;
+}
+
+.nameSubjectButton:hover{
+  cursor:pointer;
 }
 
 #container-left{
@@ -59,6 +89,10 @@ body {
   font-size:20px;
 }
 
+.controlsButton:hover{
+  cursor: pointer;
+}
+
 #flashcardsSaveButton{
   background-color: #E4CCFF;
   color:black;
@@ -76,6 +110,7 @@ body {
   background-color: #F8F8F8;
   border:none;
   padding:20px;
+  width:25vw;
   border-radius:10px;
 }
 
@@ -91,5 +126,7 @@ body {
 
 .postInputContainer{
   display:flex;
-  gap:20px;
+  flex-direction: column;
+  align-items:center;
+  gap:30px;
 }

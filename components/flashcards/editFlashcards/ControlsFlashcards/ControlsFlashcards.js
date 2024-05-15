@@ -65,4 +65,3 @@ function renderSaveButton(parentId) {
 };
 
 renderContainerLeft("wrapper");
-renderContainerRight("wrapper");

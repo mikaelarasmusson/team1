@@ -7,18 +7,19 @@ async function renderFlashcards() {
     }
 
     await State.get(flashcardData);
+    renderNavBar("wrapper");
     renderFlashcardBoxes("wrapper");
 }
 
 function renderFlashcardBoxes (parent) {
     const parentDom = document.getElementById(parent);
     const flashcards = State.getEntity("flashcards");
-    const pageTitleCont = document.createElement("div");
-    pageTitleCont.classList.add("page-title");
-    pageTitleCont.innerHTML = `
-    <h1>My Flashcards</h1> 
-    `;
-    parentDom.append(pageTitleCont);
+    const pageTitle = document.createElement("h1");
+    pageTitle.classList.add("page-title");
+    pageTitle.textContent = "My Flashcards";
+    const flashcardContainer = document.createElement("div");
+    flashcardContainer.classList.add("flashcard-container");
+    parentDom.append(pageTitle, flashcardContainer);
 
     for (const flashcard of flashcards) {
         const cardBox = document.createElement("div");
@@ -56,12 +57,12 @@ function renderFlashcardBoxes (parent) {
         cardBox.addEventListener("click", (e) => {
             State.saveEntity("deckIdChoice", flashcard.id);
             renderPlayFlashcardsContainer();
-            // spara undan informationen i s
+            // spara undan informationen i state
         })
 
         // En delete-knapp med ett event för att kunna ta bort
         // Samma som U2.
-        parentDom.append(cardBox);
+        flashcardContainer.append(cardBox);
     }
 
 }
