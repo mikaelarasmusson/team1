@@ -7,11 +7,14 @@ function renderAddFlashcardsButton(parentId) {
     flashcardsAddButton.textContent = "+";
 
     flashcardsAddButton.addEventListener("click", (e) => {
+        renderEditActiveFlascardContainer(parentId);
 
     });
 
     parent.append(flashcardsAddButton);
 }
+
+
 
 function renderDeleteFlashcardsButton(parentId) {
     const parent = document.getElementById(parentId);
@@ -36,7 +39,25 @@ function renderSaveButton(parentId) {
     flashcardsSaveButton.id = "flashcardsSaveButton";
     flashcardsSaveButton.textContent = "Save";
 
-    flashcardsSaveButton.addEventListener("click", (e) => {
+    flashcardsSaveButton.addEventListener("click", async (e) => {
+        const flashcardData = {
+            userId: 1,
+            subject: "DU1",
+            questions: ["Test", "Test"],
+            answers: ["Test", "Test"]
+        };
+
+        const response = await fetch("../../api/flashcards.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(flashcardData)
+        });
+
+        State.post({
+
+        })
 
     });
 
