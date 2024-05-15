@@ -3,7 +3,6 @@
     src: url('../../fonts/Manrope-Regular.ttf') format('truetype');
 }
 
-
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -14,7 +13,6 @@
     font-size: 16px;
     border-radius: 5px;
 }
-
 
 .logo {
     max-width: 100px;
@@ -29,8 +27,6 @@
     justify-content: flex-end; 
 }
     
-
-
 .box {
     padding: 10px;
     margin-left: 20px;
