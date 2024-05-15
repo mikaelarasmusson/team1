@@ -31,7 +31,7 @@ function renderNavBar (parentId) {
 
     navBar.appendChild(boxContainer);
 
-    parent.appendChild(navBar);
+    parent.appendChild(navBar); 
 }
 
 //renderNavBar();
