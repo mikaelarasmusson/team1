@@ -1,3 +1,7 @@
+"use strict"
+
+let allAddedCards = [];
+
 function renderAddFlashcardsButton(parentId) {
     const parent = document.getElementById(parentId);
 
@@ -7,8 +11,30 @@ function renderAddFlashcardsButton(parentId) {
     flashcardsAddButton.textContent = "+";
 
     flashcardsAddButton.addEventListener("click", (e) => {
-        renderEditActiveFlascardContainer(parentId);
+        const questionInput = document.getElementById("questionInput").value;
+        const answerInput = document.getElementById("answerInput").value;
 
+        if (questionInput === "" || answerInput === "") {
+            document.getElementById("error").textContent = "No field should be empty"
+            return;
+        }
+
+        let highestId = 0;
+
+        for (let card of allAddedCards) {
+            if (card.questionId > highestId) highestId = card.questionId;
+        }
+        
+        allAddedCards.push({
+            questionId: highestId++,
+            question: questionInput,
+            answer: answerInput
+        });
+
+        document.getElementById("questionInput").value = "";
+        document.getElementById("answerInput").value = "";
+
+        console.log(allAddedCards);
     });
 
     parent.append(flashcardsAddButton);
@@ -40,14 +66,25 @@ function renderSaveButton(parentId) {
     flashcardsSaveButton.textContent = "Save";
 
     flashcardsSaveButton.addEventListener("click", async (e) => {
+        const subjectInput = document.getElementById("subjectInput").value;
+        
+        if (subjectInput === "") {
+            document.getElementById("error").textContent = "Needs a subject";
+            return;
+        }
+
+        if (allAddedCards.length === 0) {
+            document.getElementById("error").textContent = "No cards added, you must add at least one card";
+            return;
+        }
+
         const flashcardData = {
             userId: 1,
-            subject: "DU1",
-            questions: ["Test", "Test"],
-            answers: ["Test", "Test"]
+            subject: subjectInput,
+            questions: allAddedCards
         };
 
-        const response = await fetch("../../api/flashcards.php", {
+        const rqst = new Request ("../../api/flashcards.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -56,8 +93,9 @@ function renderSaveButton(parentId) {
         });
 
         State.post({
-
-        })
+            entity: "flashcards",
+            rqst: rqst
+        });
 
     });
 
