@@ -1,5 +1,5 @@
 "use strict"
-
+// Ta bort container och använd bara login
 function renderLoginContainer (parentId) {
     const parent = document.getElementById(parentId);
     const selfId = "login-container";
@@ -29,6 +29,8 @@ function requestLogin (event) {
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
 
+    // kontroller för inloggfälten, så det ej är tomma osv
+
     const loginData = {
         username: username,
         password: password
@@ -46,6 +48,8 @@ function requestLogin (event) {
         rqst: rqst
     });
 }
+
+//register.php och fixa en register funktion
 
 
 

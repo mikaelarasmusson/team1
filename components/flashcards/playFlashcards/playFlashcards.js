@@ -26,5 +26,3 @@ async function getFlashcardInformation() {
   // return questions[0];
 }
 
-getFlashcardInformation();
-renderNavBar();

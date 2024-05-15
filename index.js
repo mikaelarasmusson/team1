@@ -8,21 +8,24 @@ async function renderApp() {
     //     entity: "user",
     //     rqst: "../api/user.php?userId=" + userId
     //})
-    const rqst = new Request ("api/users.php", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(userId)
-    });
+    // const rqst = new Request ("api/users.php", {
+    //     method: "GET",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(userId)
+    // });
 
-    State.get({
-        entity: "user",
-        rqst: rqst
-    });
+    // State.get({
+    //     entity: "user",
+    //     rqst: rqst
+    // });
     
-    if (userId) {
+    if (!userId) {
         renderLoginContainer("wrapper");
-    } 
+    } else {
+        renderFlashcards();
+    }
 }
 
+renderApp();
 
 

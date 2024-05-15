@@ -128,12 +128,9 @@ async function LoginRegister(data) {
 
         switch (type) {
             case "Login":
-                _STATE[entity] = resource;
-                console.log(_STATE);
                 localStorage.setItem("user", JSON.stringify(resource));
                 const userId = JSON.parse(localStorage.getItem("user"));
-                console.log(userId);
-                //renderApp();
+                window.location = "./components/flashcards/flashcards.html";
                 break;
             case "Register":
                 alert("Your register was successful");

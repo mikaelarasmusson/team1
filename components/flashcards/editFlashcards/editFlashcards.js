@@ -7,4 +7,3 @@ function renderContent(parentId, flashcards){
 
 }
 
-renderContent();
