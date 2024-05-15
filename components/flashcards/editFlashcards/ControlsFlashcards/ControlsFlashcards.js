@@ -63,5 +63,3 @@ function renderSaveButton(parentId) {
 
     parent.append(flashcardsSaveButton);
 };
-
-renderContainerLeft("wrapper");
