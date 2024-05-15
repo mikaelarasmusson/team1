@@ -8,7 +8,7 @@ function renderEditActiveFlascardContainer(parentId) {
     <div class="subjectNameContainer">
 
       <div class="nameSubjectPost">
-        <input class="nameSubject" placeholder="Add Subject Here"></input>
+        <input class="nameSubject" id = "subjectInput" placeholder="Add Subject Here"></input>
         <button class="nameSubjectButton">Post</button>
       </div>
 
@@ -21,12 +21,12 @@ function renderEditActiveFlascardContainer(parentId) {
     <div class="postInputContainer">
 
       <div class ="inputPost">
-        <input class = "editInput" placeholder="Add Question Here"></input>
+        <input class = "editInput" id = "questionInput"placeholder="Add Question Here"></input>
         <button id= "postButton" class="controlsButton">Post</button>
       </div>
 
       <div class="inputPost">
-        <input class = "editInput" placeholder="Add Answer Here"></input>
+        <input class = "editInput" id= "answerInput" placeholder="Add Answer Here"></input>
         <button id= "postButton" class="controlsButton">Post</button>
       </div>
 
