@@ -8,10 +8,13 @@ function renderAddFlashcardsButton(parentId) {
 
     flashcardsAddButton.addEventListener("click", (e) => {
         renderEditActiveFlascardContainer(parentId);
+
     });
 
     parent.append(flashcardsAddButton);
 }
+
+
 
 function renderDeleteFlashcardsButton(parentId) {
     const parent = document.getElementById(parentId);
@@ -52,11 +55,9 @@ function renderSaveButton(parentId) {
             body: JSON.stringify(flashcardData)
         });
 
-        if (response.ok) {
-            console.log("Flashcard saved");
-        } else {
-            console.error("Failed to save");
-        }
+        State.post({
+
+        })
 
     });
 
