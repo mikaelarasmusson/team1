@@ -20,13 +20,13 @@ function renderAddFlashcardsButton(parentId) {
         }
 
         let highestId = 0;
-
+        
         for (let card of allAddedCards) {
             if (card.questionId > highestId) highestId = card.questionId;
         }
-        
+
         allAddedCards.push({
-            questionId: highestId++,
+            questionId: ++highestId,
             question: questionInput,
             answer: answerInput
         });
@@ -84,7 +84,7 @@ function renderSaveButton(parentId) {
             questions: allAddedCards
         };
 
-        const rqst = new Request ("../../api/flashcards.php", {
+        const rqst = new Request ("../../../api/flashcards.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

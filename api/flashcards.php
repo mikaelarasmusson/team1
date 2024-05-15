@@ -36,38 +36,22 @@ else if ($requestMethod == "POST") // Create a new flashcard
         abort(400, "Bad Request (empty request)");
     }
 
-    $flashcardKeys = ["USERS", "subject", "questions"];
+    $flashcardKeys = ["userId", "subject", "questions"];
     
     if (requestContainsAllKeys($requestData, $flashcardKeys) == false) {
         abort(400, "Bad Request (missing flashcard keys)");
     }
-    
-    $questionKeys = ["FLASHCARDS", "questionId", "question", "answer"];
-    
-    if (requestContainsAllKeys($requestData["questions"], $questionKeys) == false) {
-        abort(400, "Bad Request (missing question keys)");
-    }
 
-    $user = findItemByKey("USERS", "username", $requestData["user"]);
+
+    $user = findItemByKey("USERS", "id", $requestData["userId"]);
 
     if ($user == false) {
         abort(400, "Bad Request (invalid user)");
     }
 
-    $flashcard = findItemByKey("FLASHCARDS", "id", $requestData["id"]);
+    $flashcard = insertItemByType("FLASHCARDS", $requestData);
 
-    if ($flashcard == false) {
-        abort(400, "Bad Request (flashcard already exists)");
-    }
-
-    $requestData["USERS"] = $user["id"];
-    $newFlashcard = insertItemByType("FLASHCARDS", $flashcardKeys, $requestData);
-
-    $newQuestion = $requestData["questions"];
-    $newQuestion["FLASHCARDS"] = $newFlashcard["id"];
-    $newQuestion = insertItemByType("questions", $questionKeys, $newQuestion);
-
-    send(201, ["FLASHCARDS" => $newFlashcard, "questions" => $newQuestion]);
+    send(200, $flashcard);
 } 
 else if ($requestMethod == "PATCH") 
 {
@@ -120,22 +104,22 @@ else if ($requestMethod == "DELETE") // Delete a flashcard
         abort(404, "Flashcard Not Found");
     }
 
-    $singleCardKeys = ["id", "userId", "questionId"];
+    // $singleCardKeys = ["id", "userId", "questionId"];
 
-    if (requestContainsAllKeys($requestData, $singleCardKeys) == false) {
-        abort(400, "Bad Request (missing keys)");
-    }
+    // if (requestContainsAllKeys($requestData, $singleCardKeys) == false) {
+    //     abort(400, "Bad Request (missing keys)");
+    // }
 
-    $flashcardSingleCard = findItemByKey("FLASHCARDS", "id", "questionId"[0], $requestData["questionId"[0]]);
+    // $flashcardSingleCard = findItemByKey("FLASHCARDS", "id", "questionId"[0], $requestData["questionId"[0]]);
 
-    if ($flashcardSingleCard == false) {
-        abort(404, "Card not found");
-    }
+    // if ($flashcardSingleCard == false) {
+    //     abort(404, "Card not found");
+    // }
 
     $deletedFlashcardDeck = deleteItemByType("FLASHCARDS", $flashcardDeck);
     send(200, $deletedFlashcardDeck);
 
-    $deletedSingleFlashcard = deleteItemByType("FLASHCARDS", $flashcardSingleCard);
-    send(200, $deletedSingleFlashcard);
+    // $deletedSingleFlashcard = deleteItemByType("FLASHCARDS", $flashcardSingleCard);
+    // send(200, $deletedSingleFlashcard);
 } 
 ?>
