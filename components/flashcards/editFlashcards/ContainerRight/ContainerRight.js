@@ -8,8 +8,6 @@ function renderContainerRight(parentId) {
 
     renderSwitchFlashcardContainer(selfId);
     renderEditActiveFlascardContainer(selfId);
-
-
 }
 
 
