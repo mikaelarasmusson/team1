@@ -58,20 +58,6 @@ body {
   outline:none;
 }
 
-.nameSubjectButton{
-  padding:10px;
-  border-radius:10px;
-  border:none;
-  background-color:#F8F8F8;
-  color:black;
-  font-weight:bold;
-  font-size:20px;
-}
-
-.nameSubjectButton:hover{
-  cursor:pointer;
-}
-
 #container-left{
   display: flex;
   flex-direction: column;
@@ -112,12 +98,6 @@ body {
   padding:20px;
   width:25vw;
   border-radius:10px;
-}
-
-#postButton{
-  padding:10px;
-  background-color: #F8F8F8;
-  color:black;
 }
 
 .editInput:focus{
