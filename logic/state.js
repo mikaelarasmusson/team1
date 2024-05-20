@@ -53,32 +53,8 @@ async function post(data) {
 
     const resource = await response.json();
     console.log(resource);
-    _STATE[entity].push(resource);
 
-    console.log(resource.id);
-    let instanceData;
-    for (let element of _STATE[entity]) {
-        if(element.id === resource.id){
-        instanceData = JSON.parse(JSON.stringify(element));
-        }
-    }
-
-    console.log(instanceData);
-
-    switch (entity) {
-        case 'flashcards':
-        //update right component
-        post_instance_booksContainer(instanceData); // funktionen för att uppdatera UI, Funktionen ska vara i booksList (Ul filen) 
-        renderCounter();
-        break;
-
-        case 'characters':
-        //update right component
-            post_instance_charactersContainer(instanceData);
-      renderCounter();
-        break;
-    }
-    
+    alert(`New deck created! Subject: ${resource.subject} Cards: ${resource.questions.length}`);
 }
 
 async function patch(data) {
@@ -152,12 +128,9 @@ async function LoginRegister(data) {
 
         switch (type) {
             case "Login":
-                _STATE[entity] = resource;
-                console.log(_STATE);
                 localStorage.setItem("user", JSON.stringify(resource));
                 const userId = JSON.parse(localStorage.getItem("user"));
-                console.log(userId);
-                //renderApp();
+                window.location = "./components/flashcards/flashcards.html";
                 break;
             case "Register":
                 alert("Your register was successful");

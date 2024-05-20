@@ -7,7 +7,7 @@ async function renderFlashcards() {
     }
 
     await State.get(flashcardData);
-    renderNavBar("wrapper");
+    renderNavBar("navbar");
     renderFlashcardBoxes("wrapper");
 }
 

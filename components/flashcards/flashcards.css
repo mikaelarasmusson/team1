@@ -3,8 +3,6 @@ body {
     padding: 0;
     box-sizing: border-box;
     height: 100vh;
-    display: flex;
-    align-items: end;
     background-color: #F8F8F8;
 }
 

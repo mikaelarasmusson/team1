@@ -74,39 +74,23 @@ function findItemByKey($entity, $key, $value)
     return false;
 }
 
-function insertItemByType($type, $keys, $data)
+function insertItemByType($type, $data)
 {
-    $database = getDatabase();
-    
-    if (isset($database[$type]) == false) {
-        abort(500, "Internal Server Error (database type '$type' does not exist)");
-    }
-
-    $databaseByType = $database[$type];
-
-    $newItem = [];
-
-    foreach ($keys as $key) {
-        if ($key == "token") {
-            continue;
-        }
-        $newItem[$key] = $data[$key];
-    }
+    $database = getDatabase($type);
 
     $id = 0;
 
-    foreach ($databaseByType as $item) {
+    foreach ($database as $item) {
         if (isset($item["id"]) && $item["id"] > $id) {
             $id = $item["id"];
         }
     }
 
-    $newItem["id"] = $id + 1;
-    $databaseByType[] = $newItem;
-    $database[$type] = $databaseByType;
+    $data["id"] = $id + 1;
+    $database[] = $data;
     $json = json_encode($database, JSON_PRETTY_PRINT);
-    file_put_contents("database.json", $json);
-    return $newItem;
+    file_put_contents("database/$type.json", $json);
+    return $data;
 }
 
 function updateItemByType($type, $updatedItem)
