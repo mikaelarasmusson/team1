@@ -14,6 +14,7 @@ function renderLoginContainer (parentId) {
         <p>Don't have an account? Sign up <a id="register" href="#">here</a></p>
     `;
 
+    //Forgotten password med patch
     //parent.innerHTML = "";
     parent.append(dom);
 
