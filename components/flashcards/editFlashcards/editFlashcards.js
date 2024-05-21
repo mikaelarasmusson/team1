@@ -1,6 +1,6 @@
 
 function renderContent(parentId, flashcards){
-  //const parent = document.getElementById(parentId);
+  document.getElementById("wrapper").innerHTML = null;
 
   renderContainerLeft("wrapper");
   renderContainerRight("wrapper");

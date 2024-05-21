@@ -8,11 +8,12 @@ async function renderFlashcards() {
 
     await State.get(flashcardData);
     renderNavBar("navbar");
-    renderFlashcardBoxes("wrapper");
+    renderFlashcardBoxes();
 }
 
-function renderFlashcardBoxes (parent) {
-    const parentDom = document.getElementById(parent);
+function renderFlashcardBoxes () {
+    const parentDom = document.getElementById("wrapper");
+    parentDom.innerHTML = null;
     const flashcards = State.getEntity("flashcards");
     const pageTitle = document.createElement("h1");
     pageTitle.classList.add("page-title");
@@ -56,7 +57,7 @@ function renderFlashcardBoxes (parent) {
 
         cardBox.addEventListener("click", (e) => {
             State.saveEntity("deckIdChoice", flashcard.id);
-            renderPlayFlashcardsContainer();
+            renderPlayFlashcardsContainer("wrapper");
             // spara undan informationen i state
         })
 

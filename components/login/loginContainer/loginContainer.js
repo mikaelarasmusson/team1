@@ -1,6 +1,6 @@
 "use strict"
 // Ta bort container och använd bara login
-function renderLoginContainer (parentId) {
+function renderSigninUpContainer (parentId) {
     const parent = document.getElementById(parentId);
     const selfId = "login-container";
     let dom = document.createElement("div");
@@ -10,19 +10,25 @@ function renderLoginContainer (parentId) {
         <img src="../images/LilacLogotype.jpg" alt="logotype">
         <input type="text" id="username" placeholder="Username:">
         <input type="password" id="password" placeholder="Password:">
-        <button id="login">Login</button>
-        <p>Don't have an account? Sign up <a id="register" href="#">here</a></p>
-        <p>Have you forgotten your password? Change <a id="change-password" href="#">here</a></p>
+        <div id="buttontext"></div> 
     `;
 
     //Forgotten password med patch
     //parent.innerHTML = "";
     parent.append(dom);
+    renderLogin();
+}
+
+function renderLogin () {
+    document.getElementById("buttontext").innerHTML = `
+    <button id="login">Login</button>
+    <p>Don't have an account? Sign up <a id="toregister" href="#">here</a></p>
+    `;
 
     document.getElementById("login").addEventListener("click", requestLogin);
-
-    document.getElementById("register").addEventListener("click", (e) => {
-        renderRegisterContainer("wrapper");
+    
+    document.getElementById("toregister").addEventListener("click", (e) => {
+        renderRegister();
     });
 }
 
@@ -52,27 +58,16 @@ function requestLogin (event) {
 }
 
 //register.php och fixa en register funktion
-function renderRegisterContainer (parentId) {
-    const parent = document.getElementById(parentId);
-    const selfId = "register-container";
-    let dom = document.createElement("div");
-    dom.id = selfId;
-    dom.innerHTML = `
-        <h2>UniConnect</h2>
-        <img src="../images/LilacLogotype.jpg" alt="logotype">
-        <input type="text" id="username" placeholder="Username:">
-        <input type="password" id="password" placeholder="Password:">
-        <button id="register">Register</button>
+function renderRegister() {
+    document.getElementById("buttontext").innerHTML = `
+    <button id="register">Register</button>
+    <p id="registermessage">Already a user?</p> <p>Sign in <a id="tologin" href="#">here</a></p>
     `;
 
-    //Forgotten password med patch
-    //parent.innerHTML = "";
-    parent.append(dom);
-
     document.getElementById("register").addEventListener("click", requestRegister);
-
-    document.getElementById("login").addEventListener("click", (e) => {
-        renderLoginContainer("wrapper");
+    
+    document.getElementById("tologin").addEventListener("click", (e) => {
+        renderLogin();
     });
 }
 
@@ -88,7 +83,7 @@ function requestRegister (event) {
         password: password
     }
 
-    const rqst = new Request ("../api/login.php", {
+    const rqst = new Request ("../api/users.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginData)

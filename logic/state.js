@@ -133,7 +133,7 @@ async function LoginRegister(data) {
                 window.location = "./components/flashcards/flashcards.html";
                 break;
             case "Register":
-                alert("Your register was successful");
+                document.getElementById("registermessage").textContent = resource;
                 break;
         }
     }
