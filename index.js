@@ -20,7 +20,7 @@ async function renderApp() {
     // });
     
     if (!userId) {
-        renderLoginContainer("wrapper");
+        renderSigninUpContainer("wrapper");
     } else {
         renderFlashcards();
     }

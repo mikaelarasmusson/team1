@@ -1,5 +1,6 @@
 function renderPlayFlashcardsContainer(parentId){
   const parent = document.getElementById(parentId);
+  parent.innerHTML = null;
   const selfId = "playFlashcardsContainer";
   let dom = document.createElement("div");
   dom.id = selfId;

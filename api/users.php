@@ -41,9 +41,9 @@ else if ($requestMethod == "POST") // Register a new user
         abort(400, "Bad Request (user already exists)");
     }
 
-    $newUser = insertItemByType("users", $userKeys, $requestData);
-    unset($newUser["password"]);
-    send(201, $newUser);
+    $newUser = insertItemByType("USERS", $requestData);
+    $username = $newUser["username"];
+    send(201,  "Register was a success, welcome $username");
 }
 else
 {

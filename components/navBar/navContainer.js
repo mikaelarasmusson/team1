@@ -10,7 +10,7 @@ function renderNavBar (parentId) {
     boxContainer.classList.add('box-container');
 
     const links = [
-        { text: 'My flashcards', url: getFlashcardInformation },
+        { text: 'My flashcards', url: renderFlashcardBoxes },
         { text: 'Create flashcards', url: renderContent },
         { text: 'Log out', url: logout } 
     ];
