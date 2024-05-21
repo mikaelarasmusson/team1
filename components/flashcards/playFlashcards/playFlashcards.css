@@ -1,10 +1,4 @@
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    background-color: #F8F8F8;
-    display: flex;
-}
+
 
 #wrapper {
     padding: 10px;

@@ -11,10 +11,10 @@ function renderSigninUpContainer (parentId) {
         <input type="text" id="username" placeholder="Username:">
         <input type="password" id="password" placeholder="Password:">
         <div id="buttontext"></div> 
-    `;
-
-    //Forgotten password med patch
-    //parent.innerHTML = "";
+        `;
+        
+        //Forgotten password med patch
+        //parent.innerHTML = "";
     parent.append(dom);
     renderLogin();
 }
@@ -23,9 +23,16 @@ function renderLogin () {
     document.getElementById("buttontext").innerHTML = `
     <button id="login">Login</button>
     <p>Don't have an account? Sign up <a id="toregister" href="#">here</a></p>
+    <p>forgot password Change <a id="changePassword" href="#">here</a></p>
     `;
 
     document.getElementById("login").addEventListener("click", requestLogin);
+
+    document.getElementById("changePassword").addEventListener("click", () => {
+        //Ändra lösenord
+        //Dialog ruta med 2 input - currentUser och newPassword
+        //Skicka till patch för att ändra lösenordet
+    });
     
     document.getElementById("toregister").addEventListener("click", (e) => {
         renderRegister();

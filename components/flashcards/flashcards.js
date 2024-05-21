@@ -1,6 +1,8 @@
 "use strict"
 
 async function renderFlashcards() {
+    const userId = JSON.parse(localStorage.getItem("user"));
+    
     const flashcardData = {
         entity: "flashcards",
         rqst: "../../api/flashcards.php"
@@ -11,16 +13,28 @@ async function renderFlashcards() {
     renderFlashcardBoxes();
 }
 
+// function getUserFlashcards(userId) {
+//     const users = JSON.parse(localStorage.getItem("user"));
+//     const user = users.find(user => user.id === userId);
+//     if (user) {
+//         const flashcards = JSON.parse(localStorage.getItem("flashcards"));
+//         const userFlashcards = flashcards.filter(flashcard => flashcard.userId === userId);
+//         return userFlashcards;
+//     } else {
+//         return null;
+//     }
+// }
+
 function renderFlashcardBoxes () {
     const parentDom = document.getElementById("wrapper");
     parentDom.innerHTML = null;
     const flashcards = State.getEntity("flashcards");
-    const pageTitle = document.createElement("h1");
-    pageTitle.classList.add("page-title");
-    pageTitle.textContent = "My Flashcards";
-    const flashcardContainer = document.createElement("div");
-    flashcardContainer.classList.add("flashcard-container");
-    parentDom.append(pageTitle, flashcardContainer);
+    parentDom.innerHTML = `
+    <div id="myflashcards">
+        <h1 id="page-title">My Flashcards</h1>
+        <div class="flashcard-container"></div>
+    </div>
+    `;
 
     for (const flashcard of flashcards) {
         const cardBox = document.createElement("div");
@@ -38,7 +52,7 @@ function renderFlashcardBoxes () {
             const userId = JSON.parse(localStorage.getItem("user"));
 
             const deleteData = {
-                userId: 1,
+                userId: userId,
                 id: flashcard.id,
             }
         
@@ -53,7 +67,7 @@ function renderFlashcardBoxes () {
                 rqst: rqst
             });
             
-        })
+        });
 
         cardBox.addEventListener("click", (e) => {
             State.saveEntity("deckIdChoice", flashcard.id);
@@ -63,7 +77,7 @@ function renderFlashcardBoxes () {
 
         // En delete-knapp med ett event för att kunna ta bort
         // Samma som U2.
-        flashcardContainer.append(cardBox);
+        parentDom.querySelector(".flashcard-container").append(cardBox);
     }
 
 }

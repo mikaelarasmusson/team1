@@ -42,7 +42,6 @@ else if ($requestMethod == "POST") // Create a new flashcard
         abort(400, "Bad Request (missing flashcard keys)");
     }
 
-
     $user = findItemByKey("USERS", "id", $requestData["userId"]);
 
     if ($user == false) {
