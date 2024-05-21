@@ -27,7 +27,24 @@ body {
     height: 60px;
     background-color: #E4CCFF;
     border-radius: 20px;
-}
+    display:flex;
+    justify-content:space-between;
+    padding: 10px;
+  }
+  
+  .switchButton{
+    border:none;
+    background-color: #E4CCFF;
+    padding:20px;
+    border-radius:10px;
+    font-size:16px;
+  }
+  
+  .switchButton:hover{
+    cursor:pointer;
+    background-color: #6C3DAB;
+    color:white;
+  }
 
 #activeFlashcardContainer {
     width: 100%;

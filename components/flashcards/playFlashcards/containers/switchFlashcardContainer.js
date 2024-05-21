@@ -6,9 +6,9 @@ function renderSwitchFlashcardContainer(parentId){
   dom.classList.add("switchFlashcard");
 
   dom.innerHTML = `
-  <button id="back-button">Back</button>
+  <button id="back-button" class="switchButton">←</button>
   <p id="current-card-number">0</p>
-  <button id="next-button">Next</button>
+  <button id="next-button" class="switchButton">→</button>
   `;
 
   State.saveEntity("currentCardNum", 0);
