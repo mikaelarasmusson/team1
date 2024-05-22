@@ -39,7 +39,7 @@ function renderFlashcardContent(parentId) {
     State.saveEntity("deckIdChoice", flashcards.id);
     renderContainerRight();
 
-  })
+  });
 
 
   console.log(deckIdChoice);
