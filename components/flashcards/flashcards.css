@@ -14,7 +14,15 @@ body {
     align-items: center;
 }
 
+#myflashcards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
 .flashcard-container {
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
@@ -22,7 +30,7 @@ body {
     margin: 0 20vw 0 20vw;
 }
 
-.page-title {
+#page-title {
     margin: 4.5rem 0 4.5rem 0;
     display: flex;
     justify-content: center;

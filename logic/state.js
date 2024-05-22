@@ -18,8 +18,6 @@ function saveEntity (entity, value) {
     _STATE[entity] = value;
 }
 
-// Skapa get som en funktion som hämtar från databasen, och stoppar in i state-objektet
-// Gör om denna get till getEntity.
 function getEntity(entity) {
     const copy = JSON.parse(JSON.stringify(_STATE[entity]));
     return copy;
@@ -41,15 +39,14 @@ async function get(data) {
 }
 
 async function post(data) {
-    const entity = data.entity; //flashcards
-    const rqst = data.rqst; // alla nycklar i flashcards
+    const entity = data.entity;
+    const rqst = data.rqst; 
 
     const response = await fetcher(rqst);
     if (!response.ok) {
       alert ('Something went wrong' + response.statusText);
       return;
     }
-    // om  response blir sant --> falskt och då exekveras koden.
 
     const resource = await response.json();
     console.log(resource);
@@ -80,11 +77,9 @@ async function patch(data) {
                 questionToUpdate.question = updatedQuestion;
                 questionToUpdate.answer = updatedAnswer;
             } else {
-                // Om questionId inte hittas.
                 console.log("QuestionId not found in the flashcard");
             }
         } else {
-            // Om idt på flashcard inte hittas.
             console.log("FlashcardId not found");
         }
         // renderFlashcardsInput(updatedQuestion, updatedAnswer);
@@ -97,7 +92,6 @@ async function Delete(data) {
 
     const response = await fetcher(rqst);
     console.log(response);
-
 
     if (response !== undefined) {
         const resource = await response.json();

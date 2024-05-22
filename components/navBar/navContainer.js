@@ -26,8 +26,6 @@ function renderNavBar (parentId) {
     parent.appendChild(boxContainer); 
 }
 
-//renderNavBar();
-
 function logout () {
     window.localStorage.removeItem('user');
     window.location = '../../index.html';

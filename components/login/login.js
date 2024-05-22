@@ -64,7 +64,6 @@ function requestLogin (event) {
     });
 }
 
-//register.php och fixa en register funktion
 function renderRegister() {
     document.getElementById("buttontext").innerHTML = `
     <button id="register">Register</button>
