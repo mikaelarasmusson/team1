@@ -8,5 +8,5 @@ function renderContainerLeft(parentId) {
 
     renderSaveButton(selfId);
     renderAddFlashcardsButton(selfId);
-    renderDeleteFlashcardsButton(selfId);
+
 }
