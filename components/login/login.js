@@ -1,5 +1,4 @@
 "use strict"
-// Ta bort container och använd bara login
 function renderSigninUpContainer (parentId) {
     const parent = document.getElementById(parentId);
     const selfId = "login-container";
