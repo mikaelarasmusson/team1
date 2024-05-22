@@ -44,7 +44,15 @@ function requestLogin (event) {
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
 
-    // kontroller för inloggfälten, så det ej är tomma osv
+    if (username === "") {
+        document.getElementById("error").textContent = "Needs a username";
+        return;
+    }
+
+    if (password === "") {
+        document.getElementById("error").textContent = "Needs a password";
+        return;
+    }
 
     const loginData = {
         username: username,
@@ -82,7 +90,15 @@ function requestRegister (event) {
     const username = document.querySelector("#username").value;
     const password = document.querySelector("#password").value;
 
-    // kontroller för inloggfälten, så det ej är tomma osv
+    if (username === "") {
+        document.getElementById("error").textContent = "Needs a username";
+        return;
+    }
+
+    if (password === "") {
+        document.getElementById("error").textContent = "Needs a password";
+        return;
+    }
 
     const loginData = {
         username: username,
