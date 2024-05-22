@@ -39,9 +39,9 @@ function renderAddFlashcardsButton(parentId) {
 
     parent.append(flashcardsAddButton);
 }
+
 function renderSaveButton(parentId) {
     const parent = document.getElementById(parentId);
-
     const flashcardsSaveButton = document.createElement("button");
     flashcardsSaveButton.classList.add("controlsButton");
     flashcardsSaveButton.id = "flashcardsSaveButton";
@@ -49,19 +49,26 @@ function renderSaveButton(parentId) {
 
     flashcardsSaveButton.addEventListener("click", async (e) => {
         const subjectInput = document.getElementById("subjectInput").value;
-
         if (subjectInput === "") {
             document.getElementById("error").textContent = "Needs a subject";
             return;
         }
-
         if (allAddedCards.length === 0) {
             document.getElementById("error").textContent = "No cards added, you must add at least one card";
             return;
         }
 
+        // Hämta användar-ID från localStorage
+        const user = JSON.parse(localStorage.getItem("user"));
+        const userId = user ? user.id : null; // Säkerställ att vi har ett användar-ID
+
+        if (!userId) {
+            document.getElementById("error").textContent = "You must be logged in to save flashcards.";
+            return;
+        }
+
         const flashcardData = {
-            userId: 1,
+            userId: userId,
             subject: subjectInput,
             questions: allAddedCards
         };
@@ -78,8 +85,53 @@ function renderSaveButton(parentId) {
             entity: "flashcards",
             rqst: rqst
         });
-
     });
 
     parent.append(flashcardsSaveButton);
 };
+
+
+// function renderSaveButton(parentId) {
+//     const parent = document.getElementById(parentId);
+
+//     const flashcardsSaveButton = document.createElement("button");
+//     flashcardsSaveButton.classList.add("controlsButton");
+//     flashcardsSaveButton.id = "flashcardsSaveButton";
+//     flashcardsSaveButton.textContent = "Save";
+
+//     flashcardsSaveButton.addEventListener("click", async (e) => {
+//         const subjectInput = document.getElementById("subjectInput").value;
+
+//         if (subjectInput === "") {
+//             document.getElementById("error").textContent = "Needs a subject";
+//             return;
+//         }
+
+//         if (allAddedCards.length === 0) {
+//             document.getElementById("error").textContent = "No cards added, you must add at least one card";
+//             return;
+//         }
+
+//         const flashcardData = {
+//             userId: 1,
+//             subject: subjectInput,
+//             questions: allAddedCards
+//         };
+
+//         const rqst = new Request("../../../api/flashcards.php", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify(flashcardData)
+//         });
+
+//         State.post({
+//             entity: "flashcards",
+//             rqst: rqst
+//         });
+
+//     });
+
+//     parent.append(flashcardsSaveButton);
+// };
