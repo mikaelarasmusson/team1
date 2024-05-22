@@ -1,13 +1,5 @@
 
 
-#wrapper {
-    padding: 10px;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 #playFlashcardsContainer {
     display: flex;
     flex-direction: column;
@@ -23,7 +15,6 @@
     border-radius: 20px;
     display:flex;
     justify-content:space-between;
-    padding: 10px;
   }
   
   .switchButton{
