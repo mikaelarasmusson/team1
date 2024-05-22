@@ -20,7 +20,7 @@ function renderAddFlashcardsButton(parentId) {
         }
 
         let highestId = 0;
-        
+
         for (let card of allAddedCards) {
             if (card.questionId > highestId) highestId = card.questionId;
         }
@@ -42,20 +42,7 @@ function renderAddFlashcardsButton(parentId) {
 
 
 
-function renderDeleteFlashcardsButton(parentId) {
-    const parent = document.getElementById(parentId);
 
-    const flashcardsDeleteButton = document.createElement("button");
-    flashcardsDeleteButton.classList.add("controlsButton");
-    flashcardsDeleteButton.id = "flashcardsDeleteButton";
-    flashcardsDeleteButton.textContent = "-";
-
-    flashcardsDeleteButton.addEventListener("click", (e) => {
-
-    });
-
-    parent.append(flashcardsDeleteButton);
-}
 
 function renderSaveButton(parentId) {
     const parent = document.getElementById(parentId);
@@ -67,7 +54,7 @@ function renderSaveButton(parentId) {
 
     flashcardsSaveButton.addEventListener("click", async (e) => {
         const subjectInput = document.getElementById("subjectInput").value;
-        
+
         if (subjectInput === "") {
             document.getElementById("error").textContent = "Needs a subject";
             return;
@@ -84,7 +71,7 @@ function renderSaveButton(parentId) {
             questions: allAddedCards
         };
 
-        const rqst = new Request ("../../../api/flashcards.php", {
+        const rqst = new Request("../../../api/flashcards.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
