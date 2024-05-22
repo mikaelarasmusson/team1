@@ -43,6 +43,28 @@ if ($requestMethod == "POST") // Login (name + password)
     $response = ["id" => $user["id"], "username" => $user["username"], "flashcards" => $userFlashcards];
     send(200, $response); // Skickar ett JSON-objekt med ID och användarnamn
 }
+else if ($requestMethod == "PATCH") 
+{
+    if (empty($requestData)) {
+        abort(400, "Bad Request (empty request)");
+    }
+
+    $inputKeys = ["id", "username", "password"];
+
+    if (requestContainsAllKeys($requestData, $inputKeys) == false) {
+        abort(400, "Bad Request (missing keys)");
+    }
+
+    $user = getUserFromToken($requestData["id"], "users");
+
+    if ($user == false) {
+        abort(400, "Bad Request (invalid token)");
+    }
+    
+    //if ($user["password]) Fixa denna så att det uppdaterar lösenordet.
+
+    send(200, ["message" => "Password updated sucessfully!"]);
+}
 else
 {
     abort(405, "Method Not Allowed");

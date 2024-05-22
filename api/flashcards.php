@@ -42,33 +42,6 @@ else if ($requestMethod == "POST") // Create a new flashcard
 
     send(200, $flashcard);
 } 
-else if ($requestMethod == "PATCH") 
-{
-    if (empty($requestData)) {
-        abort(400, "Bad Request (empty request)");
-    }
-
-    $inputKeys = ["id", "userId", "questions", "questionId", "question", "answer"];
-
-    if (requestContainsAllKeys($requestData, $inputKeys) == false) {
-        abort(400, "Bad Request (missing keys)");
-    }
-
-    $user = getUserFromToken($requestData["id"], "users");
-
-    if ($user == false) {
-        abort(400, "Bad Request (invalid token)");
-    }
-    
-    $flashcardSingleCard = findItemByKey("FLASHCARDS", "id", "questionId"[0], $requestData["questionId"[0]]);
-
-    if ($flashcardSingleCard == false) {
-        abort(404, "Card Not Found");
-    }
- 
-    $updatedFlashcard = updateItemByType("FLASHCARDS", $flashcardSingleCard);
-    send(200, $updatedFlashcard);
-}
 else if ($requestMethod == "DELETE") // Delete a flashcard
 {
     if (empty($requestData)) {
@@ -96,4 +69,8 @@ else if ($requestMethod == "DELETE") // Delete a flashcard
     $deletedFlashcardDeck = deleteItemByType("FLASHCARDS", $flashcardDeck);
     send(200, $deletedFlashcardDeck);
 } 
+else
+{
+    abort(405, "Method Not Allowed");
+}
 ?>

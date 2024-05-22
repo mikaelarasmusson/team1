@@ -21,6 +21,9 @@ function renderActiveFlashcardContainer(parentId) {
 function renderFlashcardContent(parentId) {
   const parent = document.getElementById(parentId);
 
+  const user = JSON.parse(localStorage.getItem("user"));
+  const username = user ? user.username : "Anonymous"; // Använd 'Anonymous' som fallback om inget användarnamn finns
+
   // alla flashcard
   let flashcards = State.getEntity("flashcards");
   // ta reda på vilket val dom gjort (dvs deck)
@@ -41,7 +44,7 @@ function renderFlashcardContent(parentId) {
   parent.innerHTML = `
   <div id="subjectNameContainer">
     <p class="deckSubject">${subject}</p>
-    <p class="deckUsername">Sabina</p>
+    <p class="deckUsername">${username}</p>
   </div>
   <div id="questionAnswerContainer">
     <h1 class="question">${questionElement.question}</h1>
