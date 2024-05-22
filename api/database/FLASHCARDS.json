@@ -15,22 +15,5 @@
             }
         ],
         "id": 1
-    },
-    {
-        "userId": 1,
-        "subject": "hejsan",
-        "questions": [
-            {
-                "questionId": 1,
-                "question": "hej",
-                "answer": "hej"
-            },
-            {
-                "questionId": 2,
-                "question": "halloj",
-                "answer": "halloj"
-            }
-        ],
-        "id": 2
     }
 ]
