@@ -5,24 +5,27 @@ async function renderFlashcards() {
     
     const flashcardData = {
         entity: "flashcards",
+        userId: userId,
         rqst: "../../api/flashcards.php"
     }
+
+    // const userFlashcards = await getUserFlashcards(userId["id"]);
+    // localStorage.setItem("userFlashcards", JSON.stringify(userFlashcards));
 
     await State.get(flashcardData);
     renderNavBar("navbar");
     renderFlashcardBoxes();
 }
 
-// function getUserFlashcards(userId) {
-//     const users = JSON.parse(localStorage.getItem("user"));
-//     const user = users.find(user => user.id === userId);
-//     if (user) {
-//         const flashcards = JSON.parse(localStorage.getItem("flashcards"));
-//         const userFlashcards = flashcards.filter(flashcard => flashcard.userId === userId);
-//         return userFlashcards;
-//     } else {
-//         return null;
-//     }
+// async function getUserFlashcards(userId) {
+//     const response = await fetch("your_api_endpoint", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//             action: "getUserFlashcards",
+//             userId: userId
+//         })
+//     });
 // }
 
 function renderFlashcardBoxes () {
@@ -72,21 +75,16 @@ function renderFlashcardBoxes () {
         cardBox.addEventListener("click", (e) => {
             State.saveEntity("deckIdChoice", flashcard.id);
             renderPlayFlashcardsContainer("wrapper");
-            // spara undan informationen i state
-        })
+        });
 
-        // En delete-knapp med ett event för att kunna ta bort
-        // Samma som U2.
         parentDom.querySelector(".flashcard-container").append(cardBox);
     }
-
 }
 
 function getFlashcardDomId (instanceId) {
     return `flashcardbox-${instanceId}`;
 }
 
-// En delete funktion som uppdaterar state.
 function deleteFlashcardBox (id) {
     const domId = getFlashcardDomId(id);
     const dom = document.getElementById(domId);

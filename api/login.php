@@ -26,9 +26,9 @@ if ($requestMethod == "POST") // Login (name + password)
         abort(400, "Bad Request (missing keys)");
     }
 
-    $name = $requestData["username"];
+    $username = $requestData["username"];
     $password = $requestData["password"];
-    $user = findItemByKey("users", "username", $name);
+    $user = findItemByKey("users", "username", $username);
 
     if ($user == false) {
         abort(404, "User Not Found");
@@ -38,9 +38,8 @@ if ($requestMethod == "POST") // Login (name + password)
         abort(400, "Bad Request (invalid password)");
     }
 
-    // This token is used to authenticate future requests
-    //$token = ["token" => sha1("$name$password")];
-    send(200, $user["id"]);
+    $response = ["id" => $user["id"], "username" => $user["username"]];
+    send(200, $response); // Skickar ett JSON-objekt med ID och användarnamn
 }
 else
 {

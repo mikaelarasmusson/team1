@@ -26,19 +26,6 @@ function renderFlashcardContent(parentId) {
   // ta reda på vilket val dom gjort (dvs deck)
   let deckIdChoice = State.getEntity("deckIdChoice");
 
-  // const editButton = document.createElement("div");
-  // editButton.classList.add("edit-Button");
-  // editButton.innerHTML = `
-  // <button id="edit-Button">Edit</button>`;
-
-  // editButton.addEventListener("click", (e) => {
-  //   State.saveEntity("deckIdChoice", flashcards.id);
-  //   renderContainerRight();
-
-  // });
-
-  console.log(deckIdChoice);
-
   let questionElement;
   let subject;
 
