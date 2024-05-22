@@ -1,4 +1,3 @@
-
 #container-right {
   display: flex;
   flex-direction: column;
@@ -11,79 +10,80 @@
   height: 100%;
   background-color: #E4CCFF;
   border-radius: 20px;
-  display:flex;
-  flex-direction:column;
-  gap:90px;
-  padding:20px;
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+  padding: 20px;
 }
 
-.subjectNameContainer{
-  display:flex;
-  justify-content:space-between;
+.subjectNameContainer {
+  display: flex;
+  justify-content: space-between;
 }
 
-.nameSubject{
+.nameSubject {
   background-color: #F8F8F8;
-  border:none;
-  padding:20px;
-  border-radius:10px;
-  height:0.3vh;
+  border: none;
+  padding: 20px;
+  border-radius: 10px;
+  height: 0.3vh;
 
 }
 
-.nameSubject:focus{
-  outline:none;
+.nameSubject:focus {
+  outline: none;
 }
 
-#container-left{
+#container-left {
   display: flex;
   flex-direction: column;
   gap: 30px;
   height: 50vh;
-  justify-content:space-around;
+  justify-content: space-around;
+  padding: 20px;
 }
 
-.controlsButton{
-  padding:20px;
-  border-radius:10px;
-  border:none;
-  color:#F8F8F8;
-  font-weight:bold;
-  font-size:20px;
+.controlsButton {
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  color: #F8F8F8;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.controlsButton:hover{
+.controlsButton:hover {
   cursor: pointer;
 }
 
-#flashcardsSaveButton{
+#flashcardsSaveButton {
   background-color: #E4CCFF;
-  color:black;
+  color: black;
 }
 
-#flashcardsAddButton{
+#flashcardsAddButton {
   background-color: #5BCB74;
 }
 
-#flashcardsDeleteButton{
+#flashcardsDeleteButton {
   background-color: #CB5B5B;
 }
 
-.editInput{
+.editInput {
   background-color: #F8F8F8;
-  border:none;
-  padding:20px;
-  width:25vw;
-  border-radius:10px;
+  border: none;
+  padding: 20px;
+  width: 25vw;
+  border-radius: 10px;
 }
 
-.editInput:focus{
-  outline:none;
+.editInput:focus {
+  outline: none;
 }
 
-.postInputContainer{
-  display:flex;
+.postInputContainer {
+  display: flex;
   flex-direction: column;
-  align-items:center;
-  gap:30px;
+  align-items: center;
+  gap: 30px;
 }
