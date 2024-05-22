@@ -23,7 +23,7 @@ function renderLogin () {
     document.getElementById("buttontext").innerHTML = `
     <button id="login">Login</button>
     <p>Don't have an account? Sign up <a id="toregister" href="#">here</a></p>
-    <p>forgot password Change <a id="changePassword" href="#">here</a></p>
+    <p>Forgot password? Change <a id="changePassword" href="#">here</a></p>
     `;
 
     document.getElementById("login").addEventListener("click", requestLogin);

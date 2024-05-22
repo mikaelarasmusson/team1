@@ -28,13 +28,10 @@ async function get(data) {
     const rqst = data.rqst;
 
     const response = await fetcher(rqst);
-    console.log(entity);
 
     if (response.ok) {
         const resource = await response.json();
         _STATE[entity] = resource;
-        console.log(resource);
-        console.log(_STATE);
     }
 }
 
@@ -49,7 +46,6 @@ async function post(data) {
     }
 
     const resource = await response.json();
-    console.log(resource);
 
     alert(`New deck created! Subject: ${resource.subject} Cards: ${resource.questions.length}`);
 }
@@ -82,7 +78,6 @@ async function patch(data) {
         } else {
             console.log("FlashcardId not found");
         }
-        // renderFlashcardsInput(updatedQuestion, updatedAnswer);
     }
 }
 
@@ -91,7 +86,6 @@ async function Delete(data) {
     const rqst = data.rqst;
 
     const response = await fetcher(rqst);
-    console.log(response);
 
     if (response !== undefined) {
         const resource = await response.json();
@@ -112,9 +106,11 @@ async function LoginRegister(data) {
     const type = data.type;
     const entity = data.entity;
     const rqst = data.rqst;
+    console.log(type);
+    console.log(entity);
 
     const response = await fetcher(rqst);
-    console.log(entity);
+    console.log(response);
 
     if (response.ok) {
         const resource = await response.json();
@@ -124,6 +120,8 @@ async function LoginRegister(data) {
             case "Login":
                 localStorage.setItem("user", JSON.stringify(resource));
                 const userId = JSON.parse(localStorage.getItem("user"));
+                // const userFlashcards = await getUserFlashcards(userId["id"]);
+                // localStorage.setItem("userFlashcards", JSON.stringify(userFlashcards));
                 window.location = "./components/flashcards/flashcards.html";
                 break;
             case "Register":
