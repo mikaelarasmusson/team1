@@ -15,6 +15,7 @@ async function getFlashcardInformation() {
   State.saveEntity("deckIdChoice", 1);
   renderPlayFlashcardsContainer("wrapper");
 
+
   // Now you can use the `flashcards` variable to work with the flashcards
 
   // const questions = [];

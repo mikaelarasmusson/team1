@@ -12,7 +12,7 @@ function renderActiveFlashcardContainer(parentId) {
   let answers = document.querySelector('.answer');
   answers.classList.add('flip');
 
-  dom.addEventListener('click', (e) =>{
+  dom.addEventListener('click', (e) => {
     questions.classList.toggle('flip');
     answers.classList.toggle('flip');
   });
@@ -47,6 +47,7 @@ function renderFlashcardContent(parentId) {
     <p class="deckUsername">${username}</p>
   </div>
   <div id="questionAnswerContainer">
+  <img src="../../images/repeat.png"  class="FLIPimage">
     <h1 class="question">${questionElement.question}</h1>
     <h1 class="answer">${questionElement.answer}</h1>
   </div>

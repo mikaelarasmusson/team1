@@ -1,65 +1,75 @@
-
-
 #playFlashcardsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    width: 50vw;
-    height: 55vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 50vw;
+  height: 55vh;
 }
 
 #switchFlashcardContainer {
-    display:flex;
-    justify-content:space-between;
-  }
-  
-  .switchButton{
-    border:none;
-    background-color: #E4CCFF;
-    padding:20px;
-    border-radius:10px;
-    font-size:16px;
-  }
-  
-  .switchButton:hover{
-    cursor:pointer;
-    background-color: #6C3DAB;
-    color:white;
-  }
+  display: flex;
+  justify-content: space-between;
+}
+
+.switchButton {
+  border: none;
+  background-color: #E4CCFF;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+.switchButton:hover {
+  cursor: pointer;
+  background-color: #6C3DAB;
+  color: white;
+}
 
 #activeFlashcardContainer {
-    width: 100%;
-    height: 100%;
-    background-color: #E4CCFF;
-    border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: #E4CCFF;
+  border-radius: 20px;
 }
 
-#activeFlashcardContainer:hover{
-    cursor:pointer;
+#activeFlashcardContainer:hover {
+  cursor: pointer;
 }
 
-.question{
-    position:absolute;
+.question {
+  position: absolute;
 }
 
-.answer{
-    position:absolute;  
+.answer {
+  position: absolute;
 }
 
-.flip{
-    display:none;
+.flip {
+  display: none;
 }
 
-#questionAnswerContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 65%;
-    font-family: "ManropeBold";
+#questionAnswerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65%;
+  font-family: "ManropeBold";
+
+
+
 }
 
-#subjectNameContainer{
-    display: flex;
+#subjectNameContainer {
+  display: flex;
   justify-content: space-around;
   font-family: "ManropeRegular";
+}
+
+
+.FLIPimage {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  margin-top: 200px;
+
 }
