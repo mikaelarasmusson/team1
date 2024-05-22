@@ -39,11 +39,6 @@ function renderAddFlashcardsButton(parentId) {
 
     parent.append(flashcardsAddButton);
 }
-
-function renderDeleteFlashcardsButton(parentId) {
-    const parent = document.getElementById(parentId);
-
-
 function renderSaveButton(parentId) {
     const parent = document.getElementById(parentId);
 
