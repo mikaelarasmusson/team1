@@ -9,6 +9,8 @@
 #switchFlashcardContainer {
   display: flex;
   justify-content: space-between;
+  background-color: #E4CCFF;
+  border-radius:20px;
 }
 
 .switchButton {
@@ -54,9 +56,6 @@
   align-items: center;
   height: 65%;
   font-family: "ManropeBold";
-
-
-
 }
 
 #subjectNameContainer {
