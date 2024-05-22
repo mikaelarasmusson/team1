@@ -4,6 +4,5 @@ function renderContent(parentId, flashcards){
 
   renderContainerLeft("wrapper");
   renderContainerRight("wrapper");
-
 }
 

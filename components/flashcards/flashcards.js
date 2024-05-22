@@ -17,17 +17,6 @@ async function renderFlashcards() {
     renderFlashcardBoxes();
 }
 
-// async function getUserFlashcards(userId) {
-//     const response = await fetch("your_api_endpoint", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         body: JSON.stringify({
-//             action: "getUserFlashcards",
-//             userId: userId
-//         })
-//     });
-// }
-
 function renderFlashcardBoxes () {
     const parentDom = document.getElementById("wrapper");
     parentDom.innerHTML = null;
