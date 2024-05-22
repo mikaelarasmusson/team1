@@ -57,10 +57,14 @@ function renderFlashcardContent(parentId) {
   }
 
   parent.innerHTML = `
-  <p class = "deckSubject">${subject}</p>
-  <p class = "deckUsername">Sabina</p>
-  <h1 class = "question">${questionElement.question}</h1>
-  <h1 class = "answer">${questionElement.answer}</h1>
+  <div id = "subjectNameContainer">
+    <p class = "deckSubject">${subject}</p>
+    <p class = "deckUsername">Sabina</p>
+  </div>
+  <div id= "questionAnswerContainer">
+    <h1 class = "question">${questionElement.question}</h1>
+    <h1 class = "answer">${questionElement.answer}</h1>
+  </div>
   `;
 
 

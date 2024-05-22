@@ -17,6 +17,7 @@ function renderNavBar (parentId) {
 
     links.forEach(linkData => {
         const link = document.createElement('button');
+        link.classList.add('navButtons');
         link.textContent = linkData.text;
         link.addEventListener('click', linkData.url)
         boxContainer.appendChild(link);
