@@ -62,7 +62,7 @@ else if ($requestMethod == "PATCH")
         abort(400, "Bad Request (User doesn't exist!)");
     }
 
-    $users = getDatabase("USERS");
+    $users = getDatabase("users");
 
     foreach ($users as &$user) {
         if (isset($user["username"]) && $user["username"] == $requestData["username"]) {
@@ -72,7 +72,7 @@ else if ($requestMethod == "PATCH")
     
 
     $json = json_encode($users, JSON_PRETTY_PRINT);
-    file_put_contents("database/USERS.json", $json);
+    file_put_contents("database/users.json", $json);
     send(200, "Password updated sucessfully!");
 }
 else

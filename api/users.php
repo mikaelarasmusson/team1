@@ -19,7 +19,7 @@ $requestData = getRequestData();
 
 if ($requestMethod == "GET") // Get all users
 {
-    $users = getDatabase("USERS");
+    $users = getDatabase("users");
     send(200, $users);
 }
 else if ($requestMethod == "POST") // Register a new user
@@ -41,7 +41,7 @@ else if ($requestMethod == "POST") // Register a new user
         abort(400, "Bad Request (user already exists)");
     }
 
-    $newUser = insertItemByType("USERS", $requestData);
+    $newUser = insertItemByType("users", $requestData);
     $username = $newUser["username"];
     send(201,  "Register was a success, welcome $username");
 }

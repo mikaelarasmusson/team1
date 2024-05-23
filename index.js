@@ -17,9 +17,10 @@ async function renderApp() {
     });
 
     if (response.ok) {
-        const flashcards = await response.json();
-        console.log(flashcards);
-        renderFlashcards(flashcards); 
+        //const flashcards = await response.json();
+        //console.log(flashcards);
+        window.location = "./flashcards.html";
+        //renderFlashcards(flashcards); 
     } else {
         console.error("Failed to fetch flashcards");
     }

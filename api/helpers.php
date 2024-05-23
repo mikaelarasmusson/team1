@@ -140,7 +140,7 @@ function deleteItemByType($type, $itemToDelete)
 function getUserFromToken($requestToken, $entity)
 {
     $users = getDatabase($entity);
-    $type = "USERS";
+    $type = "users";
 
     foreach ($users as $user) {
         if (isset($user["id"])) {
@@ -170,8 +170,8 @@ function getUserFlashcards($requestToken)
 {
 
     /*
-    $flashcards = getDatabase("FLASHCARDS");
-    $users = getDatabase("USERS");
+    $flashcards = getDatabase("flashcards");
+    $users = getDatabase("users");
     $userFlashcards = array();
 
     foreach ($users as $user) {

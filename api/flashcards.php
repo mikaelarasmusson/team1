@@ -16,7 +16,7 @@ $requestData = getRequestData();
 
 if ($requestMethod == "GET") // Get all flashcards
 {
-    $data = getDatabase("FLASHCARDS");
+    $data = getDatabase("flashcards");
     $filteredFlashcards = array_filter_flashcards($data, $requestData["userId"]);
 
     send(200, $filteredFlashcards);
@@ -33,13 +33,13 @@ else if ($requestMethod == "POST") // Create a new flashcard
         abort(400, "Bad Request (missing flashcard keys)");
     }
 
-    $user = findItemByKey("USERS", "id", $requestData["userId"]);
+    $user = findItemByKey("users", "id", $requestData["userId"]);
 
     if ($user == false) {
         abort(400, "Bad Request (invalid user)");
     }
 
-    $flashcard = insertItemByType("FLASHCARDS", $requestData);
+    $flashcard = insertItemByType("flashcards", $requestData);
 
     send(200, $flashcard);
 } 
@@ -61,13 +61,13 @@ else if ($requestMethod == "DELETE") // Delete a flashcard
         abort(400, "Bad Request (missing keys)");
     }
 
-    $flashcardDeck = findItemByKey("FLASHCARDS", "id", $requestData["id"]);
+    $flashcardDeck = findItemByKey("flashcards", "id", $requestData["id"]);
 
     if ($flashcardDeck == false) {
         abort(404, "Flashcard Not Found");
     }
 
-    $deletedFlashcardDeck = deleteItemByType("FLASHCARDS", $flashcardDeck);
+    $deletedFlashcardDeck = deleteItemByType("flashcards", $flashcardDeck);
     send(200, $deletedFlashcardDeck);
 } 
 else

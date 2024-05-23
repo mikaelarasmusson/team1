@@ -111,7 +111,7 @@ async function LoginRegister(data) {
                 const userId = JSON.parse(localStorage.getItem("user"));
                 // const userFlashcards = await getUserFlashcards(userId["id"]);
                 // localStorage.setItem("userFlashcards", JSON.stringify(userFlashcards));
-                window.location = "./components/flashcards/flashcards.html";
+                window.location = "./flashcards.html";
                 break;
             case "Register":
                 document.getElementById("registermessage").textContent = resource;
