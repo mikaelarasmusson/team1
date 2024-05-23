@@ -1,3 +1,5 @@
+"use strict"
+
 function renderContainerLeft(parentId) {
     const parent = document.getElementById(parentId);
     const selfId = "container-left";

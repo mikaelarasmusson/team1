@@ -1,3 +1,5 @@
+"use strict"
+
 function renderEditActiveFlascardContainer(parentId) {
   const parent = document.getElementById(parentId);
   const selfId = "editActiveFlashcardContainer";

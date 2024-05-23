@@ -1,3 +1,5 @@
+"use strict"
+
 function renderDialog(parentId, subject, cards) {
   const parent = document.getElementById(parentId);
   const selfId = "dialog";

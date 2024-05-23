@@ -2,7 +2,7 @@ function renderNavBar (parentId) {
     const parent = document.getElementById(parentId);
 
     const logo = document.createElement('img');
-    logo.src = '../../images/LilacLogotype.jpg';
+    logo.src = './images/LilacLogotype.jpg';
     logo.classList.add('logo');
     parent.appendChild(logo);
 
@@ -28,5 +28,5 @@ function renderNavBar (parentId) {
 
 function logout () {
     window.localStorage.removeItem('user');
-    window.location = '../../index.html';
+    window.location = './index.html';
 }
