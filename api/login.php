@@ -45,25 +45,35 @@ if ($requestMethod == "POST") // Login (name + password)
 }
 else if ($requestMethod == "PATCH") 
 {
+
     if (empty($requestData)) {
         abort(400, "Bad Request (empty request)");
     }
 
-    $inputKeys = ["id", "username", "password"];
+    $inputKeys = ["username", "password"];
 
     if (requestContainsAllKeys($requestData, $inputKeys) == false) {
         abort(400, "Bad Request (missing keys)");
     }
 
-    $user = getUserFromToken($requestData["id"], "users");
+    $user = findItemByKey("users", "username", $requestData["username"]);
 
     if ($user == false) {
-        abort(400, "Bad Request (invalid token)");
+        abort(400, "Bad Request (User doesn't exist!)");
+    }
+
+    $users = getDatabase("USERS");
+
+    foreach ($users as &$user) {
+        if (isset($user["username"]) && $user["username"] == $requestData["username"]) {
+            $user["password"] = $requestData["password"];
+        }
     }
     
-    //if ($user["password]) Fixa denna så att det uppdaterar lösenordet.
 
-    send(200, ["message" => "Password updated sucessfully!"]);
+    $json = json_encode($users, JSON_PRETTY_PRINT);
+    file_put_contents("database/USERS.json", $json);
+    send(200, "Password updated sucessfully!");
 }
 else
 {

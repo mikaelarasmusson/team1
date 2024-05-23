@@ -64,25 +64,9 @@ async function patch(data) {
     if (response !== undefined) {
         const resource = await response.json();
 
-        const flashcardId = resource.id;
-        const questionId = resource.questions[0].questionId;
-        const updatedQuestion = resource.questions[0].question;
-        const updatedAnswer = resource.questions[0].answer;
-
-        const flashcardToUpdate = _STATE[entity].find(element => element.id === flashcardId);
-
-        if (flashcardToUpdate) {
-            const questionToUpdate = flashcardToUpdate.questions.find(question => question.questionId === questionId);
-
-            if (questionToUpdate) {
-                questionToUpdate.question = updatedQuestion;
-                questionToUpdate.answer = updatedAnswer;
-            } else {
-                console.log("QuestionId not found in the flashcard");
-            }
-        } else {
-            console.log("FlashcardId not found");
-        }
+        document.getElementById("changeMessage").textContent = resource;
+    } else {
+        document.getElementById("changeMessage").textContent = resource;
     }
 }
 
