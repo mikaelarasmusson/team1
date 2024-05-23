@@ -1,3 +1,4 @@
+"use strict"
 
 function renderContent(parentId, flashcards){
   document.getElementById("wrapper").innerHTML = null;

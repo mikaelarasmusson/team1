@@ -58,9 +58,8 @@ function renderSaveButton(parentId) {
             return;
         }
 
-        // Hämta användar-ID från localStorage
         const user = JSON.parse(localStorage.getItem("user"));
-        const userId = user ? user.id : null; // Säkerställ att vi har ett användar-ID
+        const userId = user ? user.id : null;
 
         if (!userId) {
             document.getElementById("error").textContent = "You must be logged in to save flashcards.";

@@ -6,7 +6,7 @@ function renderSigninUpContainer (parentId) {
     dom.id = selfId;
     dom.innerHTML = `
         <h2>UniConnect</h2>
-        <img src="../images/LilacLogotype.jpg" alt="logotype">
+        <img src="./images/LilacLogotype.jpg" alt="logotype">
         <input type="text" id="username" placeholder="Username:">
         <input type="password" id="password" placeholder="Password:">
         <div id="buttontext"></div> 
@@ -87,7 +87,7 @@ function requestLogin (event) {
         password: password
     }
 
-    const rqst = new Request ("../api/login.php", {
+    const rqst = new Request ("./api/login.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginData)
@@ -133,7 +133,7 @@ function requestRegister (event) {
         password: password
     }
 
-    const rqst = new Request ("../api/users.php", {
+    const rqst = new Request ("./api/users.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginData)

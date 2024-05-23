@@ -39,6 +39,4 @@ function renderSwitchFlashcardContainer(parentId){
   })
 
   parent.append(dom);
-
-  //renderSwitchFlashcard(selfId);
 }

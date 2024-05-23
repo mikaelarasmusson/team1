@@ -12,8 +12,5 @@ function renderDialog(parentId, subject, cards) {
       <button id="dialogOkButton" >OK</button>
     </form>
   `;
-
-
-
   dom.showModal();
-  };
+};
