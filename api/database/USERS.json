@@ -5,18 +5,8 @@
         "password": "adde"
     },
     {
-        "id": 2,
         "username": "mikkan",
-        "password": "hej"
-    },
-    {
-        "username": "hej",
-        "password": "hej",
-        "id": 3
-    },
-    {
-        "username": "hejsan",
-        "password": "hej",
-        "id": 4
+        "password": "lol",
+        "id": 2
     }
 ]
