@@ -49,9 +49,6 @@ async function post(data) {
 
     _STATE[entity].push(resource);
 
-    //message = `New deck created! Subject: ${resource.subject} Cards: ${resource.questions.length}`;
-    //document.getElementById('dialog').textContent = message 
-   // alert(`New deck created! Subject: ${resource.subject} Cards: ${resource.questions.length}`);
    renderDialog("wrapper", resource.subject, resource.questions.length); 
 }
 
@@ -109,8 +106,6 @@ async function LoginRegister(data) {
             case "Login":
                 localStorage.setItem("user", JSON.stringify(resource));
                 const userId = JSON.parse(localStorage.getItem("user"));
-                // const userFlashcards = await getUserFlashcards(userId["id"]);
-                // localStorage.setItem("userFlashcards", JSON.stringify(userFlashcards));
                 window.location = "./flashcards.html";
                 break;
             case "Register":
