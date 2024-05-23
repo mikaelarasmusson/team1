@@ -73,7 +73,7 @@ function renderSaveButton(parentId) {
             questions: allAddedCards
         };
 
-        const rqst = new Request("../../../api/flashcards.php", {
+        const rqst = new Request("../../api/flashcards.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
