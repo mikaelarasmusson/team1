@@ -11,10 +11,40 @@ function renderSigninUpContainer (parentId) {
         <input type="password" id="password" placeholder="Password:">
         <div id="buttontext"></div> 
         `;
+    let dialog = document.createElement("dialog");
+    dialog.id = 'popup';
+    dialog.innerHTML = `
+        <p id="changeMessage"></p>
+        <input type="text" id="usernameChange" placeholder="Username:">
+        <input type="password" id="passwordChange" placeholder="New Password">
+        <button id="changeBtn">Change</button> 
+        <button id="back">Back</button> 
+        `;
+    
+    dialog.querySelector('#back').addEventListener('click', () => dialog.close())
+    dialog.querySelector('#changeBtn').addEventListener('click', () => {
+        const username = dialog.querySelector("#usernameChange").value;
+        const password = dialog.querySelector("#passwordChange").value;
+
+        const changeData = {
+            username: username,
+            password: password,
+        }
+    
+        const rqst = new Request ("./api/login.php", {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(changeData)
+        });
+    
+        State.patch({
+            entity: "user",
+            rqst: rqst
+        });
+    })
         
-        //Forgotten password med patch
-        //parent.innerHTML = "";
     parent.append(dom);
+    parent.append(dialog);
     renderLogin();
 }
 
@@ -28,9 +58,8 @@ function renderLogin () {
     document.getElementById("login").addEventListener("click", requestLogin);
 
     document.getElementById("changePassword").addEventListener("click", () => {
-        //Ändra lösenord
-        //Dialog ruta med 2 input - currentUser och newPassword
-        //Skicka till patch för att ändra lösenordet
+        const dialog = document.getElementById('popup')
+        dialog.showModal();
     });
     
     document.getElementById("toregister").addEventListener("click", (e) => {
