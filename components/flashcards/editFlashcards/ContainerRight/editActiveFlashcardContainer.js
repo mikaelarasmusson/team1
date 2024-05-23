@@ -4,7 +4,8 @@ function renderEditActiveFlascardContainer(parentId) {
   let dom = document.createElement("div");
   dom.id = selfId;
 
-
+  const user = JSON.parse(localStorage.getItem("user"));
+  const username = user ? user.username : "Anonymous"; // Använd 'Anonymous' om ingen användare är inloggad
 
   dom.innerHTML = `
     <div class="subjectNameContainer">
@@ -14,7 +15,7 @@ function renderEditActiveFlascardContainer(parentId) {
       </div>
 
       <div class="nameSubjectPost">
-        <p>Name</p>
+        <p>${username}</p>
       </div>
 
     </div>
@@ -33,9 +34,6 @@ function renderEditActiveFlascardContainer(parentId) {
 
     </div>
   `;
-
-  // ta bort alla post knappar och bara ha Save?? Spara allt i samma knapptryck
-  // Går det ens att spara individuellt???
 
   parent.append(dom);
 }
