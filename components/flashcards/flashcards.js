@@ -8,9 +8,6 @@ async function renderFlashcards() {
         rqst: `../../api/flashcards.php?userId=${userId}`
     }
 
-    // const userFlashcards = await getUserFlashcards(userId["id"]);
-    // localStorage.setItem("userFlashcards", JSON.stringify(userFlashcards));
-
     await State.get(flashcardData);
     renderNavBar("navbar");
     renderFlashcardBoxes();
