@@ -48,7 +48,7 @@
   border-radius: 10px;
   border: none;
   color: #F8F8F8;
-  font-weight: bold;
+
   font-size: 20px;
 }
 
@@ -59,6 +59,7 @@
 #flashcardsSaveButton {
   background-color: #E4CCFF;
   color: black;
+  font-family: "ManropeBold";
 }
 
 #flashcardsAddButton {
@@ -86,4 +87,8 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
+}
+
+.nameSubjectPost {
+  font-family: "ManropeRegular";
 }
