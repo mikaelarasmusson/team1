@@ -155,8 +155,21 @@ function getUserFromToken($requestToken, $entity)
     return false;
 }
 // new
+
+function array_filter_flashcards($array, $userId) {
+    $result = [];
+    foreach ($array as $element) {
+        if ($userId == $element["userId"]) {
+            $result[] = $element;
+        }
+    }
+    return $result;
+}
+
 function getUserFlashcards($requestToken)
 {
+
+    /*
     $flashcards = getDatabase("FLASHCARDS");
     $users = getDatabase("USERS");
     $userFlashcards = array();
@@ -177,6 +190,7 @@ function getUserFlashcards($requestToken)
     }
 
     return $userFlashcards;
+    */
 }
 
 function removeUserGamesCharacters($userId)

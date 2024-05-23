@@ -47,6 +47,8 @@ async function post(data) {
 
     const resource = await response.json();
 
+    _STATE[entity].push(resource);
+
     alert(`New deck created! Subject: ${resource.subject} Cards: ${resource.questions.length}`);
 }
 

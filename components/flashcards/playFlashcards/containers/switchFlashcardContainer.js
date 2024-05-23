@@ -27,6 +27,12 @@ function renderSwitchFlashcardContainer(parentId){
 
   dom.querySelector("#next-button").addEventListener("click", (e) => {
     let currentCardNum = State.getEntity("currentCardNum");
+    let currentDeck = State.getEntity('currentDeck');
+
+    if(currentCardNum === currentDeck.questions.length - 1) {
+      return;
+    }
+
     document.getElementById("current-card-number").textContent = ++currentCardNum;
     State.saveEntity("currentCardNum", currentCardNum++);
     renderFlashcardContent("activeFlashcardContainer");

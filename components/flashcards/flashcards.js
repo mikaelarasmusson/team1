@@ -1,12 +1,11 @@
 "use strict"
 
 async function renderFlashcards() {
-    const userId = JSON.parse(localStorage.getItem("user"));
+    const userId = JSON.parse(localStorage.getItem("user")).id;
     
     const flashcardData = {
         entity: "flashcards",
-        userId: userId,
-        rqst: "../../api/flashcards.php"
+        rqst: `../../api/flashcards.php?userId=${userId}`
     }
 
     // const userFlashcards = await getUserFlashcards(userId["id"]);

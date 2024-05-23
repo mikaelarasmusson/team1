@@ -40,7 +40,7 @@ if ($requestMethod == "POST") // Login (name + password)
 
     $userFlashcards = getUserFlashcards($user["id"]);
 
-    $response = ["id" => $user["id"], "username" => $user["username"], "flashcards" => $userFlashcards];
+    $response = ["id" => $user["id"], "username" => $user["username"]];
     send(200, $response); // Skickar ett JSON-objekt med ID och användarnamn
 }
 else if ($requestMethod == "PATCH") 

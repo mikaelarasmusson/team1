@@ -17,8 +17,9 @@ $requestData = getRequestData();
 if ($requestMethod == "GET") // Get all flashcards
 {
     $data = getDatabase("FLASHCARDS");
+    $filteredFlashcards = array_filter_flashcards($data, $requestData["userId"]);
 
-    send(200, $data);
+    send(200, $filteredFlashcards);
 }
 else if ($requestMethod == "POST") // Create a new flashcard
 {
