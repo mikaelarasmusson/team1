@@ -129,7 +129,6 @@ function deleteItemByType($type, $itemToDelete)
     foreach ($databaseByType as $index => $item) {
         if (isset($item["id"]) && $item["id"] == $itemToDelete["id"]) {
             array_splice($databaseByType, $index, 1);
-            break;
         }
     }
 
