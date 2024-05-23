@@ -5,7 +5,7 @@ async function renderFlashcards() {
     
     const flashcardData = {
         entity: "flashcards",
-        rqst: `../../api/flashcards.php?userId=${userId}`
+        rqst: `./api/flashcards.php?userId=${userId}`
     }
 
     await State.get(flashcardData);
@@ -44,7 +44,7 @@ function renderFlashcardBoxes () {
                 id: flashcard.id,
             }
         
-            const rqst = new Request ("../../api/flashcards.php", {
+            const rqst = new Request ("./api/flashcards.php", {
                 method: "DELETE",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(deleteData)

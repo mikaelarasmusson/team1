@@ -3,7 +3,7 @@
 async function getFlashcardInformation() {
   const flashcardData = {
     entity: "flashcards",
-    rqst: "../../api/flashcards.php"
+    rqst: "./api/flashcards.php"
   }
   console.log(flashcardData);
 
