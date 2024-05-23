@@ -57,6 +57,7 @@ function renderFlashcardBoxes () {
                 rqst: rqst
             });
             
+            allAddedCards = [];
         });
 
         cardBox.addEventListener("click", (e) => {
