@@ -4,8 +4,7 @@ function renderEditActiveFlascardContainer(parentId) {
   let dom = document.createElement("div");
   dom.id = selfId;
 
-  const user = JSON.parse(localStorage.getItem("user"));
-  const username = user ? user.username : "Anonymous"; // Använd 'Anonymous' om ingen användare är inloggad
+  const username = JSON.parse(localStorage.getItem("user")).username;
 
   dom.innerHTML = `
     <div class="subjectNameContainer">
