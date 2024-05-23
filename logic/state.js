@@ -49,7 +49,10 @@ async function post(data) {
 
     _STATE[entity].push(resource);
 
-    alert(`New deck created! Subject: ${resource.subject} Cards: ${resource.questions.length}`);
+    //message = `New deck created! Subject: ${resource.subject} Cards: ${resource.questions.length}`;
+    //document.getElementById('dialog').textContent = message 
+   // alert(`New deck created! Subject: ${resource.subject} Cards: ${resource.questions.length}`);
+   renderDialog("wrapper", resource.subject, resource.questions.length); 
 }
 
 async function patch(data) {
