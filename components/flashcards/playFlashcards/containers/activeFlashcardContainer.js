@@ -62,8 +62,8 @@ function renderFlashcardContent(parentId) {
   </div>
   <div id="questionAnswerContainer">
   <img src="./images/repeat.png" class="FLIPimage">
-    <h1 class="question">${questionElement.question}</h1>
-    <h1 class="answer flip">${questionElement.answer}</h1>
+    <h1 class="question">Question:<br>${questionElement.question}</h1>
+    <h1 class="answer flip">Answer:<br>${questionElement.answer}</h1>
   </div>
   `;
 }

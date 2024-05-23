@@ -1,3 +1,19 @@
 [
-
+    {
+        "userId": 2,
+        "subject": "JS",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "Hur skapar man en div i JavaScript?",
+                "answer": "document.createElement eller innerHTML"
+            },
+            {
+                "questionId": 2,
+                "question": "Hur kan man h\u00e4mta ett v\u00e4rde fr\u00e5n ett input-f\u00e4lt?",
+                "answer": ".value"
+            }
+        ],
+        "id": 1
+    }
 ]
