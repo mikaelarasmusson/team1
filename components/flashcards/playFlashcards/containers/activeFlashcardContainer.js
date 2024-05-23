@@ -24,6 +24,25 @@ function renderActiveFlashcardContainer(parentId) {
     let answers = document.querySelector('.answer');
     questions.classList.toggle('flip');
     answers.classList.toggle('flip');
+
+    const activeFlashcardContainer = document.getElementById("activeFlashcardContainer");
+    const subjectNameContainer = document.getElementById("subjectNameContainer");
+    const questionAnswerContainer = document.getElementById("questionAnswerContainer");
+
+    activeFlashcardContainer.style.width = 0;
+    subjectNameContainer.classList.toggle("hidden");
+    questionAnswerContainer.classList.toggle("hidden");
+
+    setTimeout(() => {
+      activeFlashcardContainer.style.width = 100 + "%";
+      
+      setTimeout(() => {
+        subjectNameContainer.classList.toggle("hidden");
+        questionAnswerContainer.classList.toggle("hidden");
+      }, 100);
+      
+    }, 300);
+
   });
 }
 
