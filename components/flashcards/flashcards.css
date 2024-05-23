@@ -46,7 +46,7 @@ body {
     justify-content: space-between;
     background-color: #e4ccff;
     border-radius: 10px;
-    box-shadow: 2px 2px 2px 1px rgb(228 204 255 / 60%);
+    box-shadow: 2px 2px 2px 1px #004bad72;
     grid-row: auto;
     height: 16vh;
 
