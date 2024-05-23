@@ -6,7 +6,7 @@ function renderDialog(parentId) {
 
   dom.innerHTML = `
     <form id="dialogForm" method="dialog">
-      <p>New card added successfully!</p>
+      <p></p>
       <button id="dialogOkButton" >OK</button>
     </form>
   `;
