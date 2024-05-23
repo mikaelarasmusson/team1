@@ -40,9 +40,11 @@ function renderFlashcardBoxes () {
             const userId = JSON.parse(localStorage.getItem("user"));
 
             const deleteData = {
-                userId: userId,
+                userId: userId.id,
                 id: flashcard.id,
             }
+
+            console.log(flashcard);
         
             const rqst = new Request ("./api/flashcards.php", {
                 method: "DELETE",

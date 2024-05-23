@@ -49,7 +49,7 @@ else if ($requestMethod == "DELETE") // Delete a flashcard
         abort(400, "Bad Request (empty request)");
     }
 
-    $user = getUserFromToken($requestData["id"], "users");
+    $user = getUserFromToken($requestData["userId"], "users");
 
     if ($user == false) {
         abort(400, "Bad Request (invalid user ID)");

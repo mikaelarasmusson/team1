@@ -84,6 +84,8 @@ function renderSaveButton(parentId) {
             entity: "flashcards",
             rqst: rqst
         });
+
+        allAddedCards = [];
     });
 
     parent.append(flashcardsSaveButton);
