@@ -1,3 +1,5 @@
+"use strict"
+
 function renderNavBar (parentId) {
     const parent = document.getElementById(parentId);
 

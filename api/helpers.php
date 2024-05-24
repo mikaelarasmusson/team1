@@ -105,10 +105,8 @@ function updateItemByType($type, $updatedItem)
 
     foreach ($databaseByType as $index => $item) {
         if (isset($item["id"]) && $item["id"] == $updatedItem["id"]) {
-            // Find the question to update
             foreach ($item["questions"] as $questionIndex => $question) {
                 if ($question["questionId"] == $updatedItem["questions"][0]["questionId"]) {
-                    // Update the question
                     $item["questions"][$questionIndex] = $updatedItem["questions"][0];
                 }
             }
@@ -154,7 +152,6 @@ function getUserFromToken($requestToken, $entity)
 
     return false;
 }
-// new
 
 function array_filter_flashcards($array, $userId) {
     $result = [];
@@ -164,63 +161,6 @@ function array_filter_flashcards($array, $userId) {
         }
     }
     return $result;
-}
-
-function getUserFlashcards($requestToken)
-{
-
-    /*
-    $flashcards = getDatabase("flashcards");
-    $users = getDatabase("users");
-    $userFlashcards = array();
-
-    foreach ($users as $user) {
-        if (isset($user["id"])) {
-            $userId = $user["id"];
-
-            if ($requestToken == $userId) {
-                foreach ($flashcards as $flashcard) {
-                    if ($flashcard["userId"] == $userId) {
-                        $userFlashcards[] = $flashcard;
-                    }
-                }
-                break;
-            }
-        }
-    }
-
-    return $userFlashcards;
-    */
-}
-
-function removeUserGamesCharacters($userId)
-{
-    $database = getDatabase();
-
-    if (isset($database["games"]) == false) {
-        abort(500, "Internal Server Error (database type 'games' does not exist)");
-    }
-
-    if (isset($database["characters"]) == false) {
-        abort(500, "Internal Server Error (database type 'characters' does not exist)");
-    }
-
-    $games = $database["games"];
-    $characters = $database["characters"];
-
-    foreach ($games as $gameIndex => $game) {
-        // If the user created the game, remove it completely
-        if ($game["user_id"] == $userId) {
-            array_slice($games, $gameIndex, 1);
-        }
-    }
-
-    foreach ($characters as $characterIndex => $character) {
-        // If the user created the character, remove it completely
-        if ($character["user_id"] == $userId) {
-            array_slice($characters, $characterIndex, 1);
-        }
-    }
 }
 
 ?>

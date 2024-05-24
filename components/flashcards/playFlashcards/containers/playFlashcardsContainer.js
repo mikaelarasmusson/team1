@@ -1,3 +1,5 @@
+"use strict"
+
 function renderPlayFlashcardsContainer(parentId){
   const parent = document.getElementById(parentId);
   parent.innerHTML = null;

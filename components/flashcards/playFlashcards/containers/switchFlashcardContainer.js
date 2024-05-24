@@ -1,3 +1,5 @@
+"use strict"
+
 function renderSwitchFlashcardContainer(parentId){
   const parent = document.getElementById(parentId);
   const selfId =  "switchFlashcardContainer";

@@ -43,7 +43,7 @@ else if ($requestMethod == "POST") // Create a new flashcard
 
     send(200, $flashcard);
 } 
-else if ($requestMethod == "DELETE") // Delete a flashcard
+else if ($requestMethod == "DELETE") // Delete a flashcardDeck
 {
     if (empty($requestData)) {
         abort(400, "Bad Request (empty request)");

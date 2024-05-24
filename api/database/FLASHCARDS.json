@@ -15,5 +15,32 @@
             }
         ],
         "id": 1
+    },
+    {
+        "userId": 2,
+        "subject": "PHP",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "What does PHP stand for and what is it used for?",
+                "answer": "PHP stands for \"Hypertext Preprocessor.\" It is a popular server-side scripting language that is used to create dynamic and interactive web pages."
+            },
+            {
+                "questionId": 2,
+                "question": "How do you declare a variable in PHP?",
+                "answer": "Variables in PHP are declared with a dollar sign followed by the variable name. For example, $variableName = 'value';."
+            },
+            {
+                "questionId": 3,
+                "question": "What is the difference between the echo and print statements in PHP?",
+                "answer": "Both echo and print are used to output data to the screen in PHP. The main difference is that echo can take multiple parameters (although it behaves like a statement), whereas print can only take one argument and behaves more like a function with a return value of 1."
+            },
+            {
+                "questionId": 4,
+                "question": "What are PHP arrays and how can you create one?",
+                "answer": "An array in PHP is a data structure that holds multiple values in one single variable. You can create an array using the array() function or by using square brackets. For example, $array = array('value1', 'value2'); or $array = ['value1', 'value2'];."
+            }
+        ],
+        "id": 2
     }
 ]

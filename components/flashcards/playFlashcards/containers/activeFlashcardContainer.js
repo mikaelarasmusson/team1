@@ -1,3 +1,5 @@
+"use strict"
+
 function renderActiveFlashcardContainer(parentId) {
   const parent = document.getElementById(parentId);
   const selfId = "activeFlashcardContainer";

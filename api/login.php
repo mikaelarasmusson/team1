@@ -38,12 +38,10 @@ if ($requestMethod == "POST") // Login (name + password)
         abort(400, "Bad Request (invalid password)");
     }
 
-    $userFlashcards = getUserFlashcards($user["id"]);
-
     $response = ["id" => $user["id"], "username" => $user["username"]];
-    send(200, $response); // Skickar ett JSON-objekt med ID och användarnamn
+    send(200, $response); 
 }
-else if ($requestMethod == "PATCH") 
+else if ($requestMethod == "PATCH") // Change password
 {
 
     if (empty($requestData)) {
