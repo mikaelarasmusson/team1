@@ -212,5 +212,153 @@
             }
         ],
         "id": 7
+    },
+    {
+        "userId": 4,
+        "subject": "Management",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "What is the difference between leadership and management?",
+                "answer": "Leadership involves inspiring and guiding individuals or teams towards a common goal, while management involves planning, organizing, and coordinating resources to achieve specific objectives."
+            },
+            {
+                "questionId": 2,
+                "question": "What are the key components of effective communication in management?",
+                "answer": "Effective communication in management involves clarity, conciseness, consistency, and feedback. It requires clear articulation of goals and expectations, active listening, open channels of communication, and timely feedback to ensure understanding and alignment."
+            },
+            {
+                "questionId": 3,
+                "question": "Why is strategic planning important in management?",
+                "answer": "Strategic planning sets direction, allocates resources, and anticipates changes."
+            },
+            {
+                "questionId": 4,
+                "question": "Why are performance appraisals important?",
+                "answer": "Performance appraisals evaluate job performance and guide development."
+            },
+            {
+                "questionId": 5,
+                "question": "What does ROI stand for in management?",
+                "answer": "ROI stands for Return on Investment, a measure used to evaluate the profitability or efficiency of an investment relative to its cost."
+            },
+            {
+                "questionId": 6,
+                "question": "What is the role of change management in organizations?",
+                "answer": "Change management facilitates the smooth transition from current state to desired future state, minimizing resistance and maximizing adoption of changes within an organization."
+            }
+        ],
+        "id": 8
+    },
+    {
+        "userId": 4,
+        "subject": "Biology",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "What is the basic unit of life?",
+                "answer": "The cell."
+            },
+            {
+                "questionId": 2,
+                "question": "What process do green plants use to make their own food?",
+                "answer": "Photosynthesis."
+            },
+            {
+                "questionId": 3,
+                "question": "What is the role of DNA?",
+                "answer": "DNA contains genetic instructions."
+            },
+            {
+                "questionId": 4,
+                "question": "What is the difference between mitosis and meiosis?",
+                "answer": "Mitosis results in two identical cells; meiosis produces four cells with half the chromosomes."
+            },
+            {
+                "questionId": 5,
+                "question": "What is homeostasis?",
+                "answer": "Homeostasis is internal stability in response to external changes."
+            },
+            {
+                "questionId": 6,
+                "question": "What is the body's main organ of digestion?",
+                "answer": "The small intestine."
+            },
+            {
+                "questionId": 7,
+                "question": "What is the purpose of the circulatory system?",
+                "answer": "To transport oxygen, nutrients, and hormones throughout the body and remove waste products."
+            }
+        ],
+        "id": 9
+    },
+    {
+        "userId": 4,
+        "subject": "Animals",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "What is the largest animal on Earth?",
+                "answer": " The blue whale is the largest animal on Earth."
+            },
+            {
+                "questionId": 2,
+                "question": "What is the fastest land animal?",
+                "answer": "The cheetah is the fastest land animal, capable of reaching speeds up to 60-70 mph (97-113 km\/h)."
+            },
+            {
+                "questionId": 3,
+                "question": "What is the largest species of big cat?",
+                "answer": "The Siberian tiger is the largest species of big cat, weighing up to 660 pounds (300 kilograms) and measuring up to 11 feet (3.3 meters) in length."
+            },
+            {
+                "questionId": 4,
+                "question": "What is the only mammal capable of true flight?",
+                "answer": "Bats are the only mammals capable of true flight."
+            },
+            {
+                "questionId": 5,
+                "question": "What is the national animal of Australia?",
+                "answer": "The kangaroo is the national animal of Australia."
+            },
+            {
+                "questionId": 6,
+                "question": "What is the largest species of living reptile?",
+                "answer": "The saltwater crocodile is the largest species of living reptile."
+            }
+        ],
+        "id": 10
+    },
+    {
+        "userId": 4,
+        "subject": "Media Technology",
+        "questions": [
+            {
+                "questionId": 1,
+                "question": "How does media technlogy contribute to society?",
+                "answer": "It shapes communication, entertainment, and education, influencing public discourse and opinion."
+            },
+            {
+                "questionId": 2,
+                "question": "How has media technology changed over time?",
+                "answer": "Media technology has evolved rapidly, transitioning from analog to digital formats, leading to increased accessibility, interactivity, and globalization of media content."
+            },
+            {
+                "questionId": 3,
+                "question": "How has social media changed the landscape of media technology?",
+                "answer": "Social media has revolutionized media technology by allowing users to create, share, and interact with content in real-time, fostering global communication and community-building."
+            },
+            {
+                "questionId": 4,
+                "question": "What role does mobile technology play in media consumption?",
+                "answer": "Mobile technology has become a primary platform for media consumption, offering on-the-go access to a wide range of content, including streaming services, social media, news, and entertainment."
+            },
+            {
+                "questionId": 5,
+                "question": "What are potential future developments in media technology?",
+                "answer": "Future developments may include advancements in AI, virtual reality, immersive storytelling, and IoT integration."
+            }
+        ],
+        "id": 11
     }
 ]
